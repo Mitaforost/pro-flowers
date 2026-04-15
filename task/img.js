@@ -10,7 +10,6 @@ const newer = require('gulp-newer')
 const path = require('../config/path.js')
 
 const img = () => {
-    console.log(path.img.src);
     return src(path.img.src)
         .pipe(plumber({
             errorHandler: notify.onError(error => ({

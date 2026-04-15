@@ -7,7 +7,8 @@ const csso = require('gulp-csso')
 const rename = require('gulp-rename')
 const shorthand = require('gulp-shorthand')
 const gulpCssMediaQueries = require('gulp-group-css-media-queries')
-const sass = require('gulp-sass')(require('sass'))
+const dartSass = require('sass')
+const sass = require('gulp-sass')(dartSass)
 
 const path = require('../config/path.js')
 

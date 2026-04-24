@@ -1,0 +1,76 @@
+
+.ui-text {
+  display: block;
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+
+  &--weight-700 {
+    font-weight: 700;
+  }
+
+  &--weight-500 {
+    font-weight: 500;
+  }
+
+  &--size-xxxl {
+    font-size: 36px;
+    line-height: 36px;
+
+    @media (max-width: 1024px) {
+      font-size: 28px;
+      line-height: 28px;
+    }
+  }
+
+  &--size-xxl {
+    font-size: 28px;
+    line-height: 28px;
+
+    @media (max-width: 1024px) {
+      font-size: 24px;
+      line-height: 24px;
+    }
+  }
+
+  &--size-xl {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  &--size-l {
+    font-size: 20px;
+    line-height: 20px;
+
+    @media (max-width: 1024px) {
+      font-size: 16px;
+      line-height: 16px;
+    }
+  }
+
+  &--size-m {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  &--size-s {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  &--size-xs {
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  &--size-xxs {
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  &--size-xxxs {
+    font-size: 11px;
+    line-height: 11px;
+  }
+}

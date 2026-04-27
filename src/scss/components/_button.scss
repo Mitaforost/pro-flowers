@@ -66,4 +66,21 @@
       }
     }
   }
+
+  &--banner{
+    align-self: flex-start;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    border: none;
+    background: var(--color-bg-card);
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background: var(--color-bg-footer);
+    }
+  }
 }

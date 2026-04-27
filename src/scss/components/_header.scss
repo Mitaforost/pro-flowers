@@ -16,7 +16,7 @@
   &__info {
     display: flex;
     align-items: center;
-    gap: 51px;
+    gap: 50px;
   }
 
   &__worktime {
@@ -89,9 +89,13 @@
 
       background-color: var(--color-accent-primary);
       border-radius: 50%;
+      transition: all .3s;
     }
     &:hover {
       color: var(--color-accent-primary);
+    }
+    &:hover &-count{
+      background-color: var(--color-accent-hover);
     }
   }
 

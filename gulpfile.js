@@ -8,6 +8,7 @@ const scss = require('./task/scss.js')
 const js = require('./task/js.js')
 const img = require('./task/img.js')
 const font = require('./task/font.js')
+const library = require('./task/library.js')
 
 const server = () => {
     browserSync.init({
@@ -23,11 +24,12 @@ const watcher = () => {
     watch(path.js.watch, js).on('all', browserSync.reload)
     watch(path.img.watch, img).on('all', browserSync.reload)
     watch(path.font.watch, font).on('all', browserSync.reload)
+    watch(path.library.watch, library).on('all', browserSync.reload)
 }
 
 const build = series(
     clear,
-    parallel(html, scss, js, img, font)
+    parallel(html, scss, js, img, font, library)
 )
 
 const dev = series(
@@ -40,7 +42,7 @@ exports.scss = scss
 exports.js = js
 exports.img = img
 exports.font = font
-
+exports.library = library
 
 exports.dev = dev
 exports.build = build

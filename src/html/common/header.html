@@ -18,10 +18,19 @@
     <div class="header__top">
         <div class="container header__top-inner">
 
-            <a href="/" class="header__logo">
-                <img src="/img/png/logo.png" alt="logo">
-            </a>
+            <div class="header__left">
+                <div class="header__burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
 
+                <a href="/" class="header__logo">
+                    <img src="/img/png/logo.png" alt="logo">
+                </a>
+            </div>
+
+            <!-- десктоп -->
             <div class="header__info">
                 <span class="header__worktime">Работаем с 9 до 21</span>
 
@@ -43,7 +52,7 @@
                     <svg class="header__account-icon">
                         <use xlink:href="./img/sprites.svg#icon-user"></use>
                     </svg>
-                    Личный кабинет
+                    <span>Личный кабинет</span>
                 </a>
 
                 <a href="#" class="header__cart">
@@ -54,9 +63,32 @@
                 </a>
             </div>
 
+            <!-- мобилка -->
+            <div class="header__actions">
+                <div class="header__lang header__lang--mobile">
+                    <span>BYN</span>
+                    <svg class="header__lang-arrow">
+                        <use xlink:href="./img/sprites.svg#arrow"></use>
+                    </svg>
+                </div>
+
+                <a href="#" class="header__account header__account--mobile">
+                    <svg class="header__account-icon">
+                        <use xlink:href="./img/sprites.svg#icon-user"></use>
+                    </svg>
+                    <span>Личный кабинет</span>
+                </a>
+
+                <a href="#" class="header__cart header__cart--mobile">
+                    <svg class="header__cart-icon">
+                        <use xlink:href="./img/sprites.svg#icon-cart"></use>
+                    </svg>
+                    <span class="header__cart-count">0</span>
+                </a>
+            </div>
+
         </div>
     </div>
-
     <!-- фиксированная навигация -->
     <div class="header__nav">
         <div class="container">
@@ -71,6 +103,68 @@
                     <li class="nav__item"><a href="#">Контакты</a></li>
                 </ul>
             </nav>
+        </div>
+    </div>
+    <div class="mobile-menu">
+        <div class="mobile-menu__inner">
+
+            <div class="mobile-menu__top">
+                <div class="mobile-menu__close">
+                    <span class="mobile-menu__close-icon"></span>
+                </div>
+
+                <a href="/" class="mobile-menu__logo">
+                    <img src="/img/png/logo.png" alt="logo">
+                </a>
+            </div>
+
+            <ul class="mobile-menu__list">
+                <li><a href="#">Каталог</a></li>
+                <li><a href="#">Услуги</a></li>
+                <li><a href="#">Оплата</a></li>
+                <li><a href="#">Доставка</a></li>
+                <li><a href="#">О компании</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+
+            <div class="mobile-menu__contacts">
+                <a href="tel:+375291108050">+375 29 110 80-50</a>
+                <a href="mailto:pro-flowers@gmail.com">pro-flowers@gmail.com</a>
+            </div>
+
+            <div class="mobile-menu__pickup">
+                <div class="title">САМОВЫВОЗ</div>
+                <p>г. Минск, ул. Янки Купалы, 25<br>(здание "Журавинка")</p>
+            </div>
+
+            <div class="mobile-menu__work">
+                <div class="title">РЕЖИМ РАБОТЫ</div>
+                <p>Каждый день с 9 до 21</p>
+            </div>
+
+            <div class="mobile-menu__socials">
+                <a href="#">
+                    <svg class="mobile-menu__socials-icon">
+                        <use xlink:href="./img/sprites.svg#icon-instagram"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg class="mobile-menu__socials-icon">
+                        <use xlink:href="./img/sprites.svg#icon-whatsapp"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg class="mobile-menu__socials-icon">
+                        <use xlink:href="./img/sprites.svg#icon-viber"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg class="mobile-menu__socials-icon">
+                        <use xlink:href="./img/sprites.svg#icon-telegram"></use>
+                    </svg>
+                </a>
+            </div>
+
         </div>
     </div>
 </header>

@@ -30,6 +30,23 @@ function isEmptyObject(obj) {
     }
     return true;
 }
+const burger = document.querySelector('.header__burger');
+const menu = document.querySelector('.mobile-menu');
+const closeBtn = document.querySelector('.mobile-menu__close');
+const fade = document.querySelector('.fade');
+
+burger.addEventListener('click', () => {
+    menu.classList.add('active');
+    fadeIn(fade);
+});
+
+closeBtn.addEventListener('click', closeMenu);
+fade.addEventListener('click', closeMenu);
+
+function closeMenu() {
+    menu.classList.remove('active');
+    fadeOut(fade);
+}
 
 function parseTimer(value) {
     if (!value) return 0;

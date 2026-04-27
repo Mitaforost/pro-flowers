@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Inter Display';
+  font-family: 'Montserrat';
   src: url('../font/Montserrat-Medium.woff2') format('woff2'),
   url('../font/Montserrat-Medium.woff') format('woff');
   font-weight: 500;
@@ -8,19 +8,19 @@
 }
 
 @font-face {
-  font-family: 'Inter Display';
+  font-family: 'Montserrat';
   src: url('../font/Montserrat-Regular.woff2') format('woff2'),
   url('../font/Montserrat-Regular.woff') format('woff');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Inter Display';
+  font-family: 'Montserrat';
   src: url('../font/Montserrat-Bold.woff2') format('woff2'),
   url('../font/Montserrat-Bold.woff') format('woff');
-  font-weight: bold;
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }

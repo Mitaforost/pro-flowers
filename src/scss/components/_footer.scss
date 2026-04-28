@@ -35,7 +35,7 @@
     li {
       margin-bottom: 10px;
       a {
-        font-size: 14px;
+        font-size: 16px;
         transition: all 0.3s;
         &:hover {
           color: var(--color-accent-primary);
@@ -52,7 +52,7 @@
   }
 
   &__link {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     &:hover {
       color: var(--color-accent-primary);
@@ -65,14 +65,14 @@
     flex-direction: column;
     gap: 10px;
     p {
-      font-size: 14px;
+      font-size: 16px;
       line-height: 140%;
     }
   }
 
   &__subtitle {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     text-transform: uppercase;
   }
 
@@ -123,6 +123,7 @@
 
 @media (max-width: 767px) {
   .footer {
+    padding: 20px 0;
     &__col {
       text-align: center;
     }

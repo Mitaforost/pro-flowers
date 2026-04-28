@@ -47,41 +47,32 @@ function closeMenu() {
     menu.classList.remove('active');
     fadeOut(fade);
 }
-// hero-slider.js — подключай отдельным файлом
+// banner-slider.js — подключай отдельным файлом
 
-function initHeroSlider() {
-    const sliderElement = document.querySelector('[data-slider="hero"]');
-
+function initBannerSlider() {
+    const sliderElement = document.querySelector('[data-slider="banner"]');
     if (!sliderElement) return;
 
-    const heroSlider = new Swiper(sliderElement, {
+    new Swiper(sliderElement, {
         slidesPerView: 1,
         loop: true,
-        speed: 600, // ← Плавнее, было 800
-        effect: 'slide', // ← Простая смена (не fade, не creative — чтобы не дергалось)
+        speed: 600,
 
         navigation: {
-            nextEl: ".hero__arrow--next",
-            prevEl: ".hero__arrow--prev",
+            nextEl: ".banner__arrow--next",
+            prevEl: ".banner__arrow--prev",
+        },
+
+        pagination: {
+            el: ".banner__pagination",
+            clickable: true,
         },
 
         autoplay: {
-            delay: 5000, // ← Медленнее, было 4000
+            delay: 5000,
             disableOnInteraction: false,
-            pauseOnMouseEnter: true, // ← Останавливается при наведении
-        },
-
-        // ← Фикс: чтобы autoplay не глючил после ручного переключения
-        observer: true,
-        observeParents: true,
+        }
     });
-
-    return heroSlider;
 }
 
-// Инициализация при загрузке
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHeroSlider);
-} else {
-    initHeroSlider();
-}
+document.addEventListener('DOMContentLoaded', initBannerSlider);

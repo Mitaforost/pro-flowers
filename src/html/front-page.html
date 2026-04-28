@@ -1,36 +1,142 @@
 @@include('./common/header.html')
-<section class="hero">
-    <div class="swiper hero__slider" data-slider="hero">
+<section class="banner mb-100">
+    <div class="swiper banner__slider" data-slider="banner">
         <div class="swiper-wrapper">
-            <!-- Слайд -->
-            <div class="swiper-slide hero__slide">
-                <div class="hero__content">
-                    <h2 class="hero__title">Свежие букеты с быстрой доставкой по Минску</h2>
-                    <p class="hero__subtitle">Живые цветы - живые эмоции</p>
-                    <button class="button button--banner">Выбрать букет</button>
-                </div>
-                <div class="hero__image">
+
+            <div class="swiper-slide banner__slide">
+                <div class="banner__image">
                     <img src="./img/jpg/buket1.jpg" alt="">
                 </div>
+
+                <div class="banner__content">
+                    <h2 class="banner__title">
+                        Свежие букеты с быстрой доставкой по Минску
+                    </h2>
+                    <p class="banner__subtitle">
+                        Живые цветы - живые эмоции
+                    </p>
+                    <button class="button button--banner">
+                        Выбрать букет
+                    </button>
+                </div>
             </div>
 
-            <!-- Слайд -->
-            <div class="swiper-slide hero__slide hero__slide--dark">
-                <div class="hero__content">
-                    <h2 class="hero__title">Только лучшие букеты!</h2>
-                    <p class="hero__subtitle">Круглосуточная доставка любви</p>
-                    <button class="button button--banner">Выбрать букет</button>
-                </div>
-                <div class="hero__image">
+            <div class="swiper-slide banner__slide">
+                <div class="banner__image">
                     <img src="./img/jpg/buket2.jpg" alt="">
                 </div>
+
+                <div class="banner__content">
+                    <h2 class="banner__title">Только лучшие букеты!</h2>
+                    <p class="banner__subtitle">
+                        Круглосуточная доставка любви
+                    </p>
+                    <button class="button button--banner">
+                        Выбрать букет
+                    </button>
+                </div>
             </div>
+
+            <div class="swiper-slide banner__slide banner__slide--dark">
+                <div class="banner__image">
+                    <img src="./img/jpg/buket1.jpg" alt="">
+                </div>
+
+                <div class="banner__content">
+                    <h2 class="banner__title">Только лучшие букеты!</h2>
+                    <p class="banner__subtitle">
+                        Круглосуточная доставка любви
+                    </p>
+                    <button class="button button--banner">
+                        Выбрать букет
+                    </button>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Навигация -->
-        <div class="hero__controls">
-            <button class="hero__arrow hero__arrow--prev">❮</button>
-            <button class="hero__arrow hero__arrow--next">❯</button>
+        <div class="banner__controls">
+            <button class="banner__arrow banner__arrow--prev" aria-label="Previous slide">
+                <svg class="banner__arrow-icon">
+                    <use xlink:href="./img/sprites.svg#arrow"></use>
+                </svg>
+            </button>
+
+            <button class="banner__arrow banner__arrow--next" aria-label="Next slide">
+                <svg class="banner__arrow-icon">
+                    <use xlink:href="./img/sprites.svg#arrow"></use>
+                </svg>
+            </button>
+        </div>
+
+        <!-- pagination bubbles -->
+        <div class="banner__pagination"></div>
+    </div>
+</section>
+<section class="categories mb-100">
+    <div class="container">
+        <h2 class="categories__title">АВТОРСКИЕ БУКЕТЫ И КОМПОЗИЦИИ</h2>
+
+        <div class="categories__grid">
+            <a href="#" class="categories__card">
+                <div class="categories__image-wrapper">
+                    <img src="./img/jpg/path-to-image1.jpg" alt="Весенние букеты" class="categories__image">
+                </div>
+                <div class="categories__content">
+                    <h3 class="categories__card-title">ВЕСЕННИЕ БУКЕТЫ</h3>
+                    <p class="categories__card-text">Купить весенний букет, тюльпаны, доставка цветов</p>
+                </div>
+            </a>
+
+            <a href="#" class="categories__card">
+                <div class="categories__image-wrapper">
+                    <img src="./img/jpg/path-to-image2.jpg" alt="Букеты из роз" class="categories__image">
+                </div>
+                <div class="categories__content">
+                    <h3 class="categories__card-title">БУКЕТЫ ИЗ РОЗ</h3>
+                    <p class="categories__card-text">Купить розы, букет роз, доставка роз</p>
+                </div>
+            </a>
+
+            <a href="#" class="categories__card">
+                <div class="categories__image-wrapper">
+                    <img src="./img/jpg/path-to-image3.jpg" alt="Цветы на день рождения" class="categories__image">
+                </div>
+                <div class="categories__content">
+                    <h3 class="categories__card-title">ЦВЕТЫ НА ДЕНЬ РОЖДЕНИЯ</h3>
+                    <p class="categories__card-text">Букет на день рождения, заказать цветы, доставка</p>
+                </div>
+            </a>
+
+            <a href="#" class="categories__card">
+                <div class="categories__image-wrapper">
+                    <img src="./img/jpg/path-to-image4.jpg" alt="Свадебные букеты" class="categories__image">
+                </div>
+                <div class="categories__content">
+                    <h3 class="categories__card-title">СВАДЕБНЫЕ БУКЕТЫ</h3>
+                    <p class="categories__card-text">Букет невесты, свадебные цветы, заказать букет</p>
+                </div>
+            </a>
+
+            <a href="#" class="categories__card">
+                <div class="categories__image-wrapper">
+                    <img src="./img/jpg/path-to-image5.jpg" alt="Цветы в коробке" class="categories__image">
+                </div>
+                <div class="categories__content">
+                    <h3 class="categories__card-title">ЦВЕТЫ В КОРОБКЕ</h3>
+                    <p class="categories__card-text">Цветы в коробке, купить композицию, доставка</p>
+                </div>
+            </a>
+
+            <a href="#" class="categories__card">
+                <div class="categories__image-wrapper">
+                    <img src="./img/jpg/path-to-image6.jpg" alt="Доставка цветов" class="categories__image">
+                </div>
+                <div class="categories__content">
+                    <h3 class="categories__card-title">ДОСТАВКА ЦВЕТОВ</h3>
+                    <p class="categories__card-text">Доставка цветов, заказать букет, цветы онлайн</p>
+                </div>
+            </a>
         </div>
     </div>
 </section>

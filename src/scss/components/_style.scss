@@ -1,6 +1,7 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
+
 main {
   flex: 1;
 }
@@ -14,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 
   &.body--no-scroll {
     overflow: hidden;
@@ -57,7 +59,23 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   font-weight: 400;
 }
+h2{
+  font-size: 32px;
+  margin-bottom: 30px;
+  @media (max-width: 1024px) {
+    font-size: 28px;
+  }
 
+  @media (max-width: 767px) {
+    font-size: 24px;
+  }
+}
+h3{
+  font-size: 20px;
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
+}
 ul {
   margin: 0;
   padding: 0;
@@ -122,8 +140,13 @@ button:hover {
 
 .mb-100 {
   margin-bottom: 100px;
-
   @media (max-width: 1024px) {
     margin-bottom: 70px;
+  }
+  @media (max-width: 767px) {
+    margin-bottom: 50px;
+  }
+  @media (max-width: 576px) {
+    margin-bottom: 40px;
   }
 }

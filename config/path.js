@@ -16,7 +16,7 @@ module.exports = {
         dest: pathPublic + "/css"
     },
     js: {
-        src: pathSrc + "/js/*.js",
+        src: pathSrc + "/js/index.js",
         watch: pathSrc + "/js/**/*.js",
         dest: pathPublic + "/js"
     },

@@ -50,8 +50,8 @@
     cursor: pointer;
 
     &-arrow {
-      width: 14px;
-      height: 9px;
+      max-width: 14px;
+      max-height: 9px;
     }
     &:hover {
       color: var(--color-accent-primary);
@@ -184,7 +184,7 @@
   max-width: 370px;
   height: 100%;
   background: var(--color-bg-primary);
-  z-index: 100;
+  z-index: 300;
   transition: 0.3s;
   overflow-y: auto;
 
@@ -309,13 +309,25 @@
   &__lang {
     font-size: 14px;
   }
+  @media (max-width: 480px) {
+    max-width: 100%;
+  }
 
 }
 
 @media (max-width: 1024px) {
   .header {
-    position: relative;
-    top: auto;
+    position: sticky;
+    top: 0;
+    &__top-inner {
+      height: 70px;
+    }
+    &__left {
+      gap: 40px;
+    }
+    &__logo img {
+      height: 60px;
+    }
     &__info {
       display: none;
     }
@@ -342,7 +354,6 @@
     &__logo img {
       height: 50px;
     }
-
   }
 }
 

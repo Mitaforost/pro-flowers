@@ -144,13 +144,13 @@
   }
 
   &__arrow {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
 
     border-radius: 50%;
 
     background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-bg-card);
 
     display: flex;
     align-items: center;
@@ -163,10 +163,18 @@
     &:hover {
       transform: scale(1.08);
       border-color: var(--color-accent-primary);
+
+      .banner__arrow-icon {
+        color: var(--color-accent-primary);
+      }
     }
 
     &:active {
       transform: scale(0.95);
+    }
+    @media (max-width: 1024px) {
+      width: 50px;
+      height: 50px;
     }
   }
 
@@ -176,7 +184,7 @@
 
     color: var(--color-text-primary);
     transform: rotate(0deg);
-    transition: transform 0.2s ease;
+    transition: color 0.2s ease, transform 0.2s ease;
   }
 
   &__arrow--prev .banner__arrow-icon {

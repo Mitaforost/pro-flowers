@@ -5,7 +5,17 @@
 @use 'components/header';
 @use 'components/banner';
 @use 'components/categories';
+@use 'components/products';
+@use 'components/product-card';
+@use 'components/advantages';
+@use 'components/map';
+@use 'components/faq';
+@use 'components/reviews';
+@use "components/bestsellers";
 
 
 
+
+
+@use "components/popup";
 @use 'components/footer';

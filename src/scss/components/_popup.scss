@@ -1,0 +1,124 @@
+// scss/components/_popup.scss
+
+.popup {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+  }
+
+  &__content {
+    position: relative;
+    background: #fff;
+    border-radius: var(--border-radius, 12px);
+    padding: 30px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+
+    .popup.active & {
+      transform: translateY(0);
+    }
+
+    // Модификатор для продукта (два блока)
+    &--product {
+      max-width: 900px;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.2s;
+    z-index: 10;
+
+    &:hover {
+      color: var(--color-primary, #e91e63);
+    }
+  }
+
+  &__body {
+    display: flex;
+    gap: 24px;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
+  }
+
+  &__image {
+    flex: 1;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      max-height: 400px;
+
+      @media (max-width: 767px) {
+        max-height: 250px;
+      }
+    }
+  }
+
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    color: var(--color-text-secondary, #666);
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+
+  &__price {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--color-accent, #d32f2f);
+    margin-bottom: 20px;
+  }
+}

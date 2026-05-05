@@ -57,12 +57,10 @@
   &--secondary {
     background-color: transparent;
     color: var(--color-text-primary);
-    border-color: var(--color-accent-primary);
 
     @media (min-width: 767px) {
       &:hover:not(:disabled) {
-        background-color: var(--color-accent-primary);
-        color: var(--color-text-inverse);
+        color: var(--color-accent-primary);
       }
     }
   }

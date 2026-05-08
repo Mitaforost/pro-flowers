@@ -1,11 +1,11 @@
 .reviews {
   position: relative;
-  overflow-x: hidden;
+  overflow: visible;
 
   &__header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     margin-bottom: 40px;
     gap: 20px;
     flex-wrap: wrap;
@@ -14,7 +14,10 @@
       margin-bottom: 0;
       text-transform: uppercase;
     }
-
+    @media (max-width: 1024px) {
+      flex-direction: row;
+      justify-content: center;
+    }
     @media (max-width: 767px) {
       flex-direction: column;
       align-items: center;
@@ -34,7 +37,7 @@
     border-radius: var(--border-radius);
 
     @media (max-width: 480px) {
-      padding: 10px 14px;
+      padding: 10px 12px;
       gap: 8px;
     }
   }
@@ -63,14 +66,20 @@
 
   &__wrapper {
     position: relative;
+    padding: 0 30px;
+    @media (max-width: 1024px) {
+      padding: 0;
+    }
+    @media (max-width: 767px) {
+      padding: 0;
+    }
   }
 
   .swiper {
     overflow: hidden;
-    margin-bottom: 20px;
 
-    @media (max-width: 767px) {
-      overflow: visible;
+    .swiper-wrapper {
+      align-items: flex-start;
     }
   }
 
@@ -79,10 +88,16 @@
   }
 
   &__controls {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
     display: flex;
-    justify-content: center;
-    gap: 12px;
-    @media (max-width: 767px) {
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 10;
+    @media (max-width: 1024px) {
       display: none;
     }
   }
@@ -96,9 +111,8 @@
     border-radius: 50%;
     background: var(--color-bg-card);
     border: 1px solid var(--color-border);
-    color: var(--color-text-primary);
     cursor: pointer;
-    transition: border-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+    pointer-events: all;
 
     svg {
       width: 14px;
@@ -111,15 +125,15 @@
     }
 
     &:active {
-      transform: scale(0.96);
+      transform: scale(0.95);
     }
   }
 
-  &__arrow--prev &__arrow-icon {
+  &__arrow--prev .reviews__arrow-icon {
     transform: rotate(90deg);
   }
 
-  &__arrow--next &__arrow-icon {
+  &__arrow--next .reviews__arrow-icon {
     transform: rotate(-90deg);
   }
 }
@@ -128,13 +142,14 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 280px;
   padding: 26px;
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-card);
-  transition: border-color 0.25s ease;
+  z-index: 1;
+  transform: translateZ(0);
+  transition: height 0.5s ease;
 
   &:hover {
     border-color: var(--color-accent-primary);
@@ -157,6 +172,7 @@
     align-items: center;
     gap: 14px;
     margin-bottom: 18px;
+    flex-shrink: 0;
   }
 
   &__avatar {
@@ -164,7 +180,7 @@
     height: 52px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #fff;
+    border: 2px solid var(--color-border);
   }
 
   &__author-info {
@@ -190,21 +206,17 @@
     border-radius: 8px;
     font-size: 13px;
     font-weight: 600;
-    color: #fff;
+    color: var(--color-text-inverse);
 
-    &--yandex {
-      background-color: #FF0000;
-    }
-
-    &--google {
-      background-color: #4285F4;
-    }
+    &--yandex { background: #FF0000; }
+    &--google { background: #4285F4; }
   }
 
   &__rating {
     display: flex;
     gap: 2px;
     margin-bottom: 14px;
+    flex-shrink: 0;
     color: var(--color-accent-primary);
 
     svg {
@@ -217,6 +229,40 @@
     font-size: 15px;
     line-height: 1.6;
     color: var(--color-text-primary);
-    flex-grow: 1;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+
+  &__more {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--color-accent-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    position: relative;
+    z-index: 5;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &--expanded {
+    z-index: 20;
+
+    .review-card__text {
+      overflow: visible;
+    }
   }
 }

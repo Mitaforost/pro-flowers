@@ -67,18 +67,33 @@
 
   &--banner{
     align-self: flex-start;
-    padding: 12px 24px;
+
+    padding: 14px 28px;
     border-radius: var(--border-radius);
-    border: none;
-    background: var(--color-bg-card);
-    color: var(--color-text-primary);
+
+    background: var(--color-text-inverse);
+    color: var(--color-accent-primary);
+
+    border: 1px solid transparent;
+
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
     cursor: pointer;
-    transition: 0.3s;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 
     &:hover {
-      background: var(--color-bg-footer);
+      background: var(--color-accent-primary);
+      color: var(--color-text-inverse);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     }
   }
 }

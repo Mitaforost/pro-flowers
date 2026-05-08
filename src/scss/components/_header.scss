@@ -15,8 +15,14 @@
   }
 
   &__logo {
-    margin: 0;
-    padding: 0;
+    display: block;
+    width: 134px;
+    &-icon {
+      margin-bottom: 15px;
+      width: 134px;
+      height: 90px;
+      color: var(--color-accent-primary);
+    }
   }
 
   &__info {
@@ -35,8 +41,8 @@
     gap: 8px;
 
     &-icon {
-      width: 17px;
-      height: 17px;
+      width: 18px;
+      height: 18px;
     }
     &:hover {
       color: var(--color-accent-primary);
@@ -128,8 +134,8 @@
       display: block;
     }
 
-    &:hover{
-      span{
+    &:hover {
+      span {
         background: var(--color-accent-primary);
       }
     }
@@ -179,17 +185,17 @@
 .mobile-menu {
   position: fixed;
   top: 0;
-  left: -100%;
+  right: -100%;
   width: 100%;
   max-width: 370px;
   height: 100%;
   background: var(--color-bg-primary);
   z-index: 300;
-  transition: 0.3s;
+  transition: right 0.3s;
   overflow-y: auto;
 
   &.active {
-    left: 0;
+    right: 0;
   }
 
   &__inner {
@@ -204,6 +210,16 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-icon {
+      width: 134px;
+      height: 90px;
+      color: var(--color-accent-primary);
+    }
   }
 
   &__close {
@@ -325,8 +341,13 @@
     &__left {
       gap: 40px;
     }
-    &__logo img {
-      height: 60px;
+    &__logo {
+      width: 100px;
+      &-icon {
+        margin-bottom: 10px;
+        width: 100px;
+        height: 70px;
+      }
     }
     &__info {
       display: none;
@@ -351,8 +372,13 @@
     &__left {
       gap: 20px;
     }
-    &__logo img {
-      height: 50px;
+    &__logo {
+      width: 80px;
+      &-icon {
+        margin-bottom: 10px;
+        width: 80px;
+        height: 54px;
+      }
     }
   }
 }

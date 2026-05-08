@@ -11,8 +11,15 @@
   }
 
   &__logo {
-    display: inline-block;
-    margin-bottom: 20px;
+    display: flex;
+    width: 134px;
+    &-icon {
+      margin-bottom: 20px;
+      margin-top: -10px;
+      width: 134px;
+      height: 90px;
+      color: var(--color-accent-primary);
+    }
   }
 
   &__legal {
@@ -107,6 +114,16 @@
     &__inner {
       grid-template-columns: 1fr 1fr 1fr;
       gap: 20px 20px;
+    }
+    &__logo {
+      margin: 0 auto;
+      &-icon {
+        margin-bottom: 20px;
+        margin-top: -10px;
+        width: 134px;
+        height: 90px;
+        color: var(--color-accent-primary);
+      }
     }
     &__col--info {
       grid-column: span 3;

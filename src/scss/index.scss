@@ -11,11 +11,17 @@
 @use 'components/map';
 @use 'components/faq';
 @use 'components/reviews';
-@use "components/bestsellers";
+@use 'components/bestsellers';
+@use 'components/about-company';
+@use 'components/gallery';
+@use 'components/gallery-viewer';
+@use 'components/checkout';
+@use 'components/delivery';
 
 
 
 
-
-@use "components/popup";
+@use 'components/notifications';
+@use 'components/cookie';
+@use 'components/popup';
 @use 'components/footer';

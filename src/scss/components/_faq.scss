@@ -22,9 +22,9 @@
       .faq__icon::after {
         opacity: 0;
       }
-      .faq__item:last-child {
-        margin-bottom: 0;
-      }
+    }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
@@ -41,6 +41,18 @@
     border: none;
     cursor: pointer;
     text-align: left;
+
+    color: var(--color-text-primary);
+    -webkit-appearance: none;
+    appearance: none;
+
+    -webkit-tap-highlight-color: transparent;
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      color: var(--color-text-primary);
+    }
   }
 
   &__text {

@@ -5,7 +5,9 @@
 
             <div class="footer__col footer__col--info">
                 <a href="/" class="footer__logo">
-                    <img src="/img/png/logo.png" alt="logo">
+                    <svg class="footer__logo-icon">
+                        <use xlink:href="./img/sprites.svg#icon-logo"></use>
+                    </svg>
                 </a>
                 <div class="footer__legal">
                     <p>ИП Труханович Марина Валерьевна Свидетельство о государственной регистрации № 291847377, выдано 11.12.2025 Лунинецким районным исполнительным комитетом Адрес: Республика Беларусь, Брестская область, г. Лунинец, ул. П. Бровки, 21</p>
@@ -39,12 +41,12 @@
 
                     <div class="footer__block">
                         <div class="footer__subtitle">САМОВЫВОЗ</div>
-                        <p>г. Минск, ул. Янки Купалы, 25 (здание "Журавинка")</p>
+                        <p>г. Минск, улица Веры Хоружей, 17</p>
                     </div>
 
                     <div class="footer__block">
                         <div class="footer__subtitle">РЕЖИМ РАБОТЫ</div>
-                        <p>Каждый день с 9 до 21</p>
+                        <p>Каждый день с 9:00 до 21:00</p>
                     </div>
 
                     <div class="footer__socials">
@@ -104,6 +106,44 @@
     </div>
 </footer>
 <div class="fade" style="display: none"></div>
+<div class="notice" id="top-notice">
+    <p class="notice__text">
+        Внимание! Принимаем заказы с 9:00 до 21:00. Если вы оформили заказ после 21:00, мы свяжемся с вами утром.
+    </p>
+    <button class="notice__close" id="notice-close" aria-label="Закрыть уведомление">
+        <span class="notice__close-icon"></span>
+    </button>
+</div>
+<div class="cookie" id="cookie-banner">
+    <div class="container">
+        <div class="cookie__inner">
+
+            <div class="cookie__content">
+                <p class="cookie__text">
+                    Для улучшения работы сайта мы используем файлы cookie.
+                    Продолжая работу, вы подтверждаете свое согласие на их использование.
+                </p>
+            </div>
+
+            <div class="cookie__actions">
+                <button
+                        class="button button--md button--primary cookie__button"
+                        id="cookie-accept"
+                >
+                    Принять все
+                </button>
+
+                <button
+                        class="button button--md cookie__button cookie__button--outline"
+                        id="cookie-decline"
+                >
+                    Отклонить все
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="popup" id="productPopup" role="dialog" aria-modal="true" aria-labelledby="popupProductTitle">
     <div class="popup__overlay"></div>
     <div class="popup__content popup__content--product">

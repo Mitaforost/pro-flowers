@@ -350,8 +350,8 @@
 }
 
 .delivery-social {
-  width: 58px;
-  height: 58px;
+  width: 42px;
+  height: 42px;
 
   display: flex;
   align-items: center;
@@ -363,15 +363,16 @@
 
   transition: all 0.25s ease;
 
-  @media (max-width: 576px) {
-    width: 54px;
-    height: 54px;
-  }
-
   &__icon {
     width: 42px;
     height: 42px;
     color: var(--color-accent-primary);
     transition: all 0.25s ease;
+  }
+  &:hover {
+
+    .delivery-social__icon {
+      color: var(--color-accent-hover);
+    }
   }
 }

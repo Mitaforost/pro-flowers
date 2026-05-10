@@ -1,8 +1,6 @@
 .banner {
   position: relative;
 
-  /* ================= SLIDER ================= */
-
   &__slider {
     width: 100%;
     height: 600px;
@@ -21,8 +19,6 @@
     height: 100%;
   }
 
-  /* ================= SLIDE ================= */
-
   &__slide {
     display: flex;
     height: 100%;
@@ -33,12 +29,9 @@
     }
   }
 
-  /* ================= IMAGE ================= */
-
   &__image {
     flex: 1;
     min-width: 0;
-
     height: 100%;
     order: 2;
     position: relative;
@@ -76,8 +69,8 @@
     @media (max-width: 767px) {
       width: 100%;
       height: 55%;
-      order: 1;
       flex: none;
+      order: 1;
     }
 
     img {
@@ -91,49 +84,41 @@
     }
   }
 
-  /* ================= CONTENT ================= */
-
   &__content {
-    width: 520px;
+    width: 720px;
     flex-shrink: 0;
-
-    background: var(--color-accent-hover);
-    color: var(--color-text-inverse);
-
     padding: 60px 80px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    background: var(--color-accent-hover);
+    color: var(--color-text-inverse);
     order: 1;
-
+    @media (max-width: 1400px) {
+      width: 620px;
+    }
     @media (max-width: 1300px) {
       width: 460px;
       padding: 50px;
     }
-
     @media (max-width: 1024px) {
       width: 400px;
       padding: 35px;
     }
-
     @media (max-width: 767px) {
       width: 100%;
       height: 45%;
 
       padding: 30px 20px;
 
-      order: 2;
+      align-items: center;
+      justify-content: flex-start;
 
       text-align: center;
-      align-items: center;
 
-      justify-content: flex-start;
+      order: 2;
     }
   }
-
-  /* ================= TEXT ================= */
 
   &__text {
     display: flex;
@@ -141,7 +126,13 @@
     gap: 12px;
   }
 
-  /* ================= BUTTON ================= */
+  &__title {
+    max-width: 500px;
+  }
+
+  &__subtitle {
+    opacity: 0.85;
+  }
 
   .button--banner {
     margin-top: 40px;
@@ -151,88 +142,41 @@
     }
   }
 
-  /* ================= TITLE ================= */
-
-  &__title {
-    max-width: 500px;
-
-    font-size: 40px;
-    line-height: 1.15;
-
-    margin: 0;
-
-    @media (max-width: 1024px) {
-      font-size: 30px;
-    }
-
-    @media (max-width: 767px) {
-      font-size: 24px;
-    }
-  }
-
-  /* ================= SUBTITLE ================= */
-
-  &__subtitle {
-    font-size: 22px;
-    line-height: 1.4;
-
-    opacity: 0.85;
-    margin: 0;
-
-    @media (max-width: 767px) {
-      font-size: 16px;
-    }
-  }
-
-  /* ================= CONTROLS ================= */
-
   &__controls {
     position: absolute;
-
     bottom: 40px;
-    left: 520px;
-
+    left: 720px;
     transform: translateX(-50%);
-
     display: flex;
     gap: 14px;
-
     z-index: 10;
-
+    @media (max-width: 1400px) {
+      left: 620px;
+    }
     @media (max-width: 1300px) {
       left: 460px;
     }
-
     @media (max-width: 1024px) {
       left: 400px;
     }
-
     @media (max-width: 767px) {
       display: none;
     }
   }
 
-  /* ================= ARROWS ================= */
-
   &__arrow {
     width: 70px;
     height: 70px;
-
-    border-radius: 50%;
-
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-bg-card);
-
     display: flex;
     align-items: center;
     justify-content: center;
-
+    border-radius: 50%;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-bg-card);
     cursor: pointer;
-
     transition:
             transform 0.25s ease,
             border-color 0.25s ease;
-
     &:hover {
       transform: scale(1.08);
       border-color: var(--color-accent-primary);
@@ -241,7 +185,6 @@
         color: var(--color-accent-primary);
       }
     }
-
     &:active {
       transform: scale(0.95);
     }
@@ -255,59 +198,42 @@
   &__arrow-icon {
     width: 14px;
     height: 9px;
-
     color: var(--color-text-primary);
-
     transition: color 0.2s ease;
   }
-
   &__arrow--prev .banner__arrow-icon {
     transform: rotate(90deg);
   }
-
   &__arrow--next .banner__arrow-icon {
     transform: rotate(-90deg);
   }
 
-  /* ================= PAGINATION ================= */
-
   &__pagination {
     position: absolute;
-
     left: 0;
     right: 0;
     bottom: 18px;
-
     display: flex;
     justify-content: center;
     gap: 8px;
-
     z-index: 10;
-
     padding: 0 16px;
     box-sizing: border-box;
-
     @media (min-width: 768px) {
       display: none;
     }
-
     .swiper-pagination-bullet {
       width: 8px;
       height: 8px;
-
       border-radius: 50%;
-
       background: rgba(255, 255, 255, 0.5);
-
       opacity: 1;
       transition: 0.3s;
     }
 
     .swiper-pagination-bullet-active {
       width: 18px;
-
       border-radius: 20px;
-
       background: var(--color-text-inverse);
     }
   }

@@ -1,35 +1,22 @@
 .gallery-viewer {
   position: fixed;
   inset: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: rgba(0, 0, 0, 0.92);
-
   z-index: 500;
-
   opacity: 0;
   visibility: hidden;
-
   transition: opacity 0.25s ease, visibility 0.25s ease;
-
   padding: 40px;
-
   &.active {
     opacity: 1;
     visibility: visible;
   }
-
   @media (max-width: 767px) {
     padding: 16px;
   }
-
-  /* ===================== */
-  /* IMAGE WRAPPER */
-  /* ===================== */
-
   &__media {
     max-width: 90vw;
     max-height: 90vh;
@@ -38,66 +25,45 @@
     align-items: center;
     justify-content: center;
   }
-
   &__image {
     max-width: 100%;
     max-height: 90vh;
-
     object-fit: contain;
-
     border-radius: 18px;
-
     user-select: none;
     pointer-events: none;
   }
 
-  /* ===================== */
-  /* CLOSE BUTTON (SPAN STYLE) */
-  /* ===================== */
-
   &__close {
     position: absolute;
-
     top: 25px;
     right: 25px;
-
     width: 46px;
     height: 46px;
-
     border-radius: 50%;
-
     background: var(--color-bg-card);
-
     border: 1px solid var(--color-border);
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     cursor: pointer;
-
     transition: all 0.2s ease;
 
     span {
       position: relative;
       width: 16px;
       height: 16px;
-
       display: block;
 
       &::before,
       &::after {
         content: '';
-
         position: absolute;
         top: 50%;
         left: 0;
-
         width: 100%;
         height: 2px;
-
         background: var(--color-text-primary);
-
         transform-origin: center;
       }
 
@@ -112,7 +78,6 @@
 
     &:hover {
       border-color: var(--color-accent-primary);
-
       span::before,
       span::after {
         background: var(--color-accent-primary);
@@ -120,47 +85,31 @@
     }
   }
 
-  /* ===================== */
-  /* ARROWS (как в твоих слайдерах) */
-  /* ===================== */
-
   &__arrow {
     position: absolute;
     top: 50%;
-
     transform: translateY(-50%);
-
     width: 52px;
     height: 52px;
-
     border-radius: 50%;
-
     background: var(--color-bg-card);
-
     border: 1px solid var(--color-border);
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     cursor: pointer;
-
     transition: all 0.2s ease;
-
     @media (max-width: 767px) {
       width: 44px;
       height: 44px;
     }
-
     &:hover {
       border-color: var(--color-accent-primary);
       color: var(--color-accent-primary);
     }
-
     &:active {
       transform: translateY(-50%) scale(0.95);
     }
-
     &--prev {
       left: 25px;
 
@@ -168,7 +117,6 @@
         transform: rotate(90deg);
       }
     }
-
     &--next {
       right: 25px;
 
@@ -177,13 +125,10 @@
       }
     }
   }
-
   &__icon {
     width: 14px;
     height: 9px;
-
     color: var(--color-text-primary);
-
     transition: color 0.2s ease;
   }
 }

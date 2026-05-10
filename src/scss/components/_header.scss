@@ -1,11 +1,10 @@
 .header {
-  background-color: var(--color-bg-primary);
   position: sticky;
-  top: -100px;
+  top: 0;
   z-index: 100;
-  display: block;
   width: 100%;
   flex-shrink: 0;
+  background-color: var(--color-bg-primary);
 
   &__top-inner {
     display: flex;
@@ -14,13 +13,18 @@
     height: 100px;
   }
 
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
   &__logo {
     display: block;
     width: 134px;
     &-icon {
-      margin-bottom: 15px;
       width: 134px;
       height: 90px;
+      margin-bottom: 15px;
       color: var(--color-accent-primary);
     }
   }
@@ -31,56 +35,47 @@
     gap: 50px;
   }
 
-  &__worktime {
-    font-size: 16px;
-  }
-
-  &__phone {
+  &__phone,
+  &__lang,
+  &__account {
     display: flex;
     align-items: center;
     gap: 8px;
-
-    &-icon {
-      width: 18px;
-      height: 18px;
-    }
+    transition: color .3s;
     &:hover {
       color: var(--color-accent-primary);
     }
   }
 
   &__lang {
-    display: flex;
-    align-items: center;
-    gap: 6px;
     cursor: pointer;
-
     &-arrow {
-      max-width: 14px;
-      max-height: 9px;
-    }
-    &:hover {
-      color: var(--color-accent-primary);
+      width: 14px;
+      height: 9px;
     }
   }
 
-  &__account {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  &__phone-icon {
+    width: 18px;
+    height: 18px;
+  }
 
-    &-icon {
-      width: 20px;
-      height: 20px;
-    }
-    &:hover {
-      color: var(--color-accent-primary);
-    }
+  &__account-icon {
+    width: 20px;
+    height: 20px;
   }
 
   &__cart {
     display: flex;
     align-items: center;
+    transition: color .3s;
+    &:hover {
+      color: var(--color-accent-primary);
+    }
+
+    &:hover .header__cart-count {
+      background-color: var(--color-accent-hover);
+    }
 
     &-icon {
       width: 24px;
@@ -88,63 +83,24 @@
     }
 
     &-count {
-      width: 38px;
-      height: 38px;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--color-text-inverse);
-
-      background-color: var(--color-accent-primary);
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      transition: all .3s;
-    }
-    &:hover {
-      color: var(--color-accent-primary);
-    }
-    &:hover &-count{
-      background-color: var(--color-accent-hover);
+      color: var(--color-text-inverse);
+      background-color: var(--color-accent-primary);
+      transition: background-color .3s;
     }
   }
 
   &__nav {
+    display: flex;
+    align-items: center;
     height: 60px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    background-color: var(--color-bg-primary);
     border-bottom: 1px solid var(--color-border);
-  }
-
-  &__burger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
-
-    span {
-      width: 25px;
-      height: 3px;
-      background: var(--color-text-primary);
-      display: block;
-    }
-
-    &:hover {
-      span {
-        background: var(--color-accent-primary);
-      }
-    }
-  }
-
-  &__left {
-    display: flex;
-    align-items: center;
-    gap: 40px;
+    background-color: var(--color-bg-primary);
   }
 
   &__actions {
@@ -153,9 +109,25 @@
     gap: 20px;
   }
 
-  &__lang--mobile {
+  &__burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
     cursor: pointer;
-    font-size: 14px;
+
+    span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: var(--color-text-primary);
+      transition: background-color .3s;
+    }
+
+    &:hover {
+      span {
+        background-color: var(--color-accent-primary);
+      }
+    }
   }
 
   &__account--mobile,
@@ -168,13 +140,13 @@
 .nav {
   &__list {
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
 
   &__item {
     a {
-      font-size: 16px;
-      text-transform: uppercase;
+      transition: color .3s;
 
       &:hover {
         color: var(--color-accent-primary);
@@ -182,6 +154,7 @@
     }
   }
 }
+
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -189,67 +162,68 @@
   width: 100%;
   max-width: 370px;
   height: 100%;
-  background: var(--color-bg-primary);
   z-index: 300;
-  transition: right 0.3s;
   overflow-y: auto;
+  background-color: var(--color-bg-primary);
+  transition: right .3s;
 
   &.active {
     right: 0;
   }
 
   &__inner {
-    padding: 10px 30px;
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding: 20px 30px;
   }
 
   &__top {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    margin-bottom: 30px;
   }
+
   &__logo {
     display: flex;
     align-items: center;
     justify-content: center;
+
     &-icon {
       width: 134px;
       height: 90px;
+
       color: var(--color-accent-primary);
     }
   }
 
   &__close {
     cursor: pointer;
-
     &-icon {
       position: relative;
       display: block;
       width: 20px;
       height: 20px;
-    }
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 25px;
+        height: 2px;
+        background-color: var(--color-text-primary);
+        transform-origin: center;
+      }
 
-    &-icon::before,
-    &-icon::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 25px;
-      height: 2px;
-      background-color: var(--color-text-primary);
-      transform-origin: center;
-    }
+      &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
 
-    &-icon::before {
-      transform: translate(-50%, -50%) rotate(45deg);
-    }
-
-    &-icon::after {
-      transform: translate(-50%, -50%) rotate(-45deg);
+      &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
     }
   }
 
@@ -257,108 +231,76 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-bottom: 30px;
-
-    a {
-      font-size: 18px;
-      color: var(--color-text-primary);
-    }
+    margin-bottom: 40px;
   }
 
   &__contacts {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-
-    a {
-      font-size: 16px;
-      color: var(--color-text-primary);
-    }
+    gap: 12px;
+    margin-bottom: 30px;
   }
 
   &__pickup,
   &__work {
-    margin-bottom: 20px;
-
-    .title {
-      font-weight: 600;
+    margin-bottom: 25px;
+    div {
       margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 14px;
-      line-height: 1.4;
     }
   }
 
   &__socials {
     display: flex;
+    align-items: center;
     gap: 15px;
+    margin-top: auto;
 
-    a {
-      font-size: 14px;
-    }
-    &-icon{
-      color: var(--color-accent-primary);
+    &-icon {
       width: 42px;
       height: 42px;
-      transition: all 0.3s;
+      color: var(--color-accent-primary);
+      transition: color .3s;
       &:hover {
         color: var(--color-accent-hover);
       }
     }
   }
 
-  &__account {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 16px;
-
-    svg {
-      width: 20px;
-      height: 20px;
-    }
-  }
-
-  &__lang {
-    font-size: 14px;
-  }
   @media (max-width: 480px) {
     max-width: 100%;
   }
-
 }
 
 @media (max-width: 1024px) {
   .header {
-    position: sticky;
-    top: 0;
     &__top-inner {
       height: 70px;
     }
-    &__left {
-      gap: 40px;
-    }
+
     &__logo {
       width: 100px;
+
       &-icon {
-        margin-bottom: 10px;
         width: 100px;
         height: 70px;
+
+        margin-bottom: 10px;
       }
     }
+
     &__info {
       display: none;
     }
+
     &__nav {
       display: none;
     }
-    &__burger {
+
+    &__actions {
       display: flex;
     }
-    &__actions {
+
+    &__burger {
       display: flex;
     }
   }
@@ -369,13 +311,11 @@
     &__top-inner {
       height: 60px;
     }
-    &__left {
-      gap: 20px;
-    }
+
     &__logo {
       width: 80px;
+
       &-icon {
-        margin-bottom: 10px;
         width: 80px;
         height: 54px;
       }
@@ -385,10 +325,14 @@
 
 @media (max-width: 576px) {
   .header {
-    &__account{
-      span{
+    &__account {
+      span {
         display: none;
       }
     }
+  }
+
+  .mobile-menu {
+    max-width: 100%;
   }
 }

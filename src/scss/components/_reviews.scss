@@ -12,7 +12,6 @@
 
     h2 {
       margin-bottom: 0;
-      text-transform: uppercase;
     }
     @media (max-width: 1024px) {
       flex-direction: row;
@@ -43,8 +42,6 @@
   }
 
   &__rating-number {
-    font-size: 24px;
-    font-weight: 700;
     color: var(--color-text-primary);
   }
 
@@ -77,7 +74,6 @@
 
   .swiper {
     overflow: hidden;
-
     .swiper-wrapper {
       align-items: flex-start;
     }
@@ -113,17 +109,14 @@
     border: 1px solid var(--color-border);
     cursor: pointer;
     pointer-events: all;
-
     svg {
       width: 14px;
       height: 9px;
     }
-
     &:hover {
       border-color: var(--color-accent-primary);
       color: var(--color-accent-primary);
     }
-
     &:active {
       transform: scale(0.95);
     }
@@ -150,7 +143,6 @@
   z-index: 1;
   transform: translateZ(0);
   transition: height 0.5s ease;
-
   &:hover {
     border-color: var(--color-accent-primary);
   }
@@ -182,18 +174,11 @@
     object-fit: cover;
     border: 2px solid var(--color-border);
   }
-
   &__author-info {
     flex: 1;
   }
 
-  &__name {
-    font-size: 15px;
-    font-weight: 500;
-  }
-
   &__date {
-    font-size: 12px;
     color: var(--color-text-secondary);
   }
 
@@ -204,10 +189,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
     color: var(--color-text-inverse);
-
     &--yandex { background: #FF0000; }
     &--google { background: #4285F4; }
   }
@@ -218,7 +200,6 @@
     margin-bottom: 14px;
     flex-shrink: 0;
     color: var(--color-accent-primary);
-
     svg {
       width: 18px;
       height: 18px;
@@ -226,8 +207,6 @@
   }
 
   &__text {
-    font-size: 15px;
-    line-height: 1.6;
     color: var(--color-text-primary);
     overflow: hidden;
     transition: max-height 0.5s ease;
@@ -235,20 +214,17 @@
 
   &__more {
     margin-top: 10px;
-    font-size: 14px;
     color: var(--color-accent-primary);
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
     text-align: left;
-
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
     user-select: none;
     position: relative;
     z-index: 5;
-
     &:hover {
       text-decoration: underline;
     }
@@ -260,7 +236,6 @@
 
   &--expanded {
     z-index: 20;
-
     .review-card__text {
       overflow: visible;
     }

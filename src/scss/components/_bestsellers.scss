@@ -1,9 +1,7 @@
 .bestsellers {
   &__title {
     text-align: center;
-    text-transform: uppercase;
     margin-bottom: 30px;
-    letter-spacing: 1px;
   }
 
   &__slider {
@@ -23,7 +21,6 @@
     align-items: center;
     pointer-events: none;
     z-index: 10;
-
     @media (max-width: 767px) {
       display: none;
     }
@@ -34,19 +31,16 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background: var(--color-bg-card);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-
     cursor: pointer;
     transition: 0.25s ease;
 
     &:hover {
-      border: 1px solid var(--color-accent-primary);
+      border-color: var(--color-accent-primary);
       color: var(--color-accent-primary);
     }
 
@@ -68,14 +62,16 @@
     transform: rotate(-90deg);
   }
 }
+
 .product-card--bestseller {
 
   .product-card__desc {
-    display: block;
+    margin-top: 8px;
+    opacity: 0.8;
   }
 
-  .product-card__price {
-    font-size: 20px;
+  .product-card__meta {
+    margin-top: 10px;
   }
 
   .product-card__hidden {
@@ -83,17 +79,13 @@
     left: 0;
     right: 0;
     bottom: -80px;
-
     padding: 12px;
     background: var(--color-bg-card);
-
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-
     opacity: 0;
     transform: translateY(10px);
     transition: 0.3s ease;
-
     display: flex;
     flex-direction: column;
     gap: 10px;

@@ -4,11 +4,9 @@
   height: 100%;
   text-decoration: none;
   position: relative;
-
   background: var(--color-bg-card);
   border-radius: var(--border-radius);
   overflow: hidden;
-
   box-shadow: var(--shadow-card);
   transition: 0.3s ease;
 
@@ -52,16 +50,12 @@
   }
 
   &__name {
-    font-size: 16px;
-    line-height: 1.4;
     color: var(--color-text-primary);
-    font-weight: 400;
     text-align: center;
     margin-bottom: 10px;
   }
 
   &__desc {
-    font-size: 14px;
     color: var(--color-text-secondary);
     margin-bottom: 15px;
 
@@ -78,13 +72,10 @@
   }
 
   &__price {
-    font-size: 20px;
-    font-weight: 600;
     color: var(--color-text-primary);
   }
 
   &__tag {
-    font-size: 14px;
     color: var(--color-text-secondary);
     text-align: center;
   }

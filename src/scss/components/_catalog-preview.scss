@@ -1,9 +1,11 @@
-.categories {
+.catalog-preview {
   &__title {
-    text-transform: uppercase;
-    text-align: center;
     color: var(--color-text-primary);
+    margin-bottom: 40px;
 
+    @media (max-width: 767px) {
+      margin-bottom: 30px;
+    }
   }
 
   &__grid {
@@ -28,21 +30,25 @@
   &__card {
     display: flex;
     flex-direction: column;
-    background-color: var(--color-bg-card);
-    border-radius: var(--border-radius);
-    border: 1px solid var(--color-border);
-    overflow: hidden;
-    box-shadow: var(--shadow-card);
     height: 100%;
-    transition: all .3s ease;
+    overflow: hidden;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+    transition:
+            border-color 0.3s ease,
+            box-shadow 0.3s ease;
 
     &:hover {
-      border: 1px solid var(--color-accent-hover);
+      border-color: var(--color-accent-hover);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-      .categories__image {
+
+      .catalog-preview__image {
         transform: scale(1.05);
       }
-      .categories__card-title {
+
+      .catalog-preview__card-title {
         color: var(--color-accent-hover);
       }
     }
@@ -50,43 +56,36 @@
 
   &__image-wrapper {
     position: relative;
-    aspect-ratio: 4 / 3;
     overflow: hidden;
+    aspect-ratio: 4 / 3;
   }
 
   &__image {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
     transition: transform 0.5s ease;
   }
 
+
   &__content {
-    padding: 20px;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     gap: 10px;
-
+    flex-grow: 1;
+    padding: 20px;
     @media (max-width: 767px) {
       padding: 15px;
     }
   }
 
   &__card-title {
-    font-weight: 500;
-    text-transform: uppercase;
     color: var(--color-accent-primary);
     transition: color 0.2s ease;
   }
 
   &__card-text {
-    font-size: 16px;
-    line-height: 1.4;
     color: var(--color-text-primary);
-
-    @media (max-width: 767px) {
-      font-size: 14px;
-    }
   }
 }

@@ -233,7 +233,7 @@
 
     .swiper-pagination-bullet-active {
       width: 18px;
-      border-radius: 20px;
+      border-radius: var(--border-radius);
       background: var(--color-text-inverse);
     }
   }

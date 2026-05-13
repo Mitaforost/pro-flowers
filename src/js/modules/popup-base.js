@@ -1,5 +1,3 @@
-// js/modules/popup-base.js
-
 export function openPopup(popup) {
     if (!popup) return;
     popup.classList.add('active');
@@ -12,7 +10,6 @@ export function closePopup(popup) {
     document.body.classList.remove('body--no-scroll');
 }
 
-// Глобальная инициализация всех попапов (закрытие по оверлею и Escape)
 export function initGlobalPopups() {
     // Закрытие по клику на оверлей
     document.addEventListener('click', (e) => {

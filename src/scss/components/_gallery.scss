@@ -24,7 +24,7 @@
   &__item {
     position: relative;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     padding: 0;
     background: none;
     min-height: 320px;

@@ -12,7 +12,7 @@ import { initFaq } from './modules/faq';
 
 import { initUI } from './modules/init-ui';
 import { initCheckoutForm } from './modules/checkout-form';
-
+import { initServicePopup } from './modules/popup-services.js';
 document.addEventListener('DOMContentLoaded', () => {
 
     initGlobalPopups();
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initBestsellersSlider();
 
     initProductPopup();
-
+    initServicePopup();
     initGalleryViewer();
     initCheckoutForm();
     initUI();

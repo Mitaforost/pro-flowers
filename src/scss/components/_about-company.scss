@@ -28,7 +28,6 @@
 
   &__card {
     background-color: var(--color-bg-card);
-    border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     padding: 32px;
     transition: border-color 0.25s ease, transform 0.25s ease;
@@ -38,9 +37,6 @@
     flex-direction: column;
     gap: 12px;
 
-    &:hover {
-      border-color: var(--color-accent-primary);
-    }
 
     @media (max-width: 767px) {
       padding: 24px;
@@ -57,7 +53,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 30px;
-    padding-top: 40px;
+    padding-top: 20px;
     border-top: 1px solid var(--color-border);
 
     @media (max-width: 767px) {
@@ -77,7 +73,7 @@
 
     span {
       padding: 10px 16px;
-      border-radius: 100px;
+      border-radius: var(--border-radius);
       background-color: var(--color-bg-card);
       border: 1px solid var(--color-border);
       white-space: nowrap;

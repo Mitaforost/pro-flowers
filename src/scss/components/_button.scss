@@ -10,51 +10,41 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.15s ease;
-
   @media (max-width: 767px) {
     width: 100%;
   }
-
   &:disabled {
     opacity: 0.4;
     cursor: default;
   }
-
   &--sm {
     padding: 8px 16px;
   }
-
   &--md {
     padding: 12px 20px;
   }
-
   &--lg {
     padding: 16px 24px;
     text-transform: uppercase;
   }
-
   &--primary {
     background-color: var(--color-accent-primary);
     color: var(--color-text-inverse);
-
     @media (min-width: 767px) {
       &:hover:not(:disabled) {
         background-color: var(--color-accent-hover);
       }
     }
   }
-
   &--secondary {
     background-color: transparent;
     color: var(--color-text-primary);
-
     @media (min-width: 767px) {
       &:hover:not(:disabled) {
         color: var(--color-accent-primary);
       }
     }
   }
-
   &--banner{
     align-self: flex-start;
     padding: 14px 28px;
@@ -68,13 +58,11 @@
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-
     &:hover {
       background: var(--color-accent-primary);
       color: var(--color-text-inverse);
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
     }
-
     &:active {
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     }

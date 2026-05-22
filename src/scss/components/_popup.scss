@@ -10,24 +10,20 @@
   pointer-events: none;
   transition: opacity 0.2s ease, visibility 0.2s ease;
   z-index: 500;
-
   &.active {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-
     .popup__content {
       transform: translateY(0);
     }
   }
-
   &__overlay {
     position: absolute;
     inset: 0;
     background: rgba(43, 43, 43, 0.45);
     backdrop-filter: blur(4px);
   }
-
   &__content {
     position: relative;
     z-index: 2;
@@ -40,29 +36,23 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
     transform: translateY(20px);
     transition: transform 0.2s ease;
-
     &::-webkit-scrollbar {
       width: 4px;
     }
-
     &::-webkit-scrollbar-thumb {
       background: var(--color-accent-primary);
       border-radius: var(--border-radius);
     }
-
     @media (max-width: 767px) {
       padding: 24px 20px;
     }
-
     &--service {
       max-width: 720px;
     }
-
     &--product {
       max-width: 900px;
     }
   }
-
   &__close {
     position: absolute;
     top: 16px;
@@ -79,7 +69,6 @@
     line-height: 1;
     transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
     z-index: 3;
-
     &:hover {
       background: var(--color-accent-primary);
       color: var(--color-text-inverse);
@@ -87,14 +76,12 @@
     }
   }
 }
-
 .popup-service {
   &__top {
     display: flex;
     align-items: center;
     gap: 28px;
     margin-bottom: 32px;
-
     @media (max-width: 767px) {
       flex-direction: column;
       align-items: flex-start;
@@ -102,7 +89,6 @@
       margin-bottom: 24px;
     }
   }
-
   &__image {
     width: 240px;
     min-width: 240px;
@@ -110,13 +96,11 @@
     overflow: hidden;
     border-radius: var(--border-radius);
     background: var(--color-bg-primary);
-
     @media (max-width: 767px) {
       width: 100%;
       min-width: 100%;
       height: 220px;
     }
-
     img {
       width: 100%;
       height: 100%;
@@ -124,38 +108,31 @@
       display: block;
     }
   }
-
   &__info {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-
   &__title {
     margin-bottom: 14px;
     color: var(--color-text-primary);
   }
-
   &__description {
     color: var(--color-text-secondary);
     line-height: 1.6;
   }
-
   &__form {
     width: 100%;
   }
-
   &__fields {
     display: flex;
     flex-direction: column;
     gap: 14px;
     margin-bottom: 22px;
   }
-
   &__field {
     width: 100%;
   }
-
   &__input {
     width: 100%;
     min-height: 54px;
@@ -167,39 +144,32 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
-
     &::placeholder {
       color: var(--color-text-secondary);
     }
-
     &:hover {
       border-color: rgba(106, 62, 62, 0.25);
     }
-
     &:focus {
       border-color: var(--color-accent-primary);
       background: #fff;
       box-shadow: 0 0 0 3px rgba(106, 62, 62, 0.08);
     }
   }
-
   &__textarea {
     min-height: 120px;
     padding-top: 16px;
     resize: vertical;
   }
-
-  /* ---------- Кастомный селект ---------- */
   &__custom-select {
     position: relative;
     width: 100%;
     user-select: none;
   }
-
   &__custom-select-trigger {
     width: 100%;
     min-height: 54px;
-    padding: 0 48px 0 18px; /* правый отступ под стрелку */
+    padding: 0 48px 0 18px;
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     background: var(--color-bg-primary);
@@ -212,18 +182,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     &:hover {
       border-color: rgba(106, 62, 62, 0.25);
     }
-
     &:focus {
       border-color: var(--color-accent-primary);
       background: #fff;
       box-shadow: 0 0 0 3px rgba(106, 62, 62, 0.08);
     }
   }
-
   &__custom-select-text {
     white-space: nowrap;
     overflow: hidden;
@@ -233,7 +200,6 @@
       color: var(--color-text-secondary);
     }
   }
-
   &__custom-select-arrow {
     position: absolute;
     right: 18px;
@@ -244,11 +210,9 @@
     color: var(--color-accent-primary);
     transition: transform 0.25s ease;
     pointer-events: none;
-    fill: currentColor;   /* если иконка использует fill */
-    stroke: none;         /* на всякий случай убираем обводку */
+    fill: currentColor;
+    stroke: none;
   }
-
-  /* Состояние открытого селекта */
   &__custom-select.open {
     .popup-service__custom-select-trigger {
       border-color: var(--color-accent-primary);
@@ -261,11 +225,10 @@
     .popup-service__custom-select-options {
       opacity: 1;
       visibility: visible;
-      max-height: 300px; /* достаточно для списка */
+      max-height: 300px;
       transition: max-height 0.3s ease, opacity 0.25s ease, visibility 0.25s ease;
     }
   }
-
   &__custom-select-options {
     position: absolute;
     top: calc(100% + 6px);
@@ -283,9 +246,8 @@
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
-    display: block; /* <-- Явно, чтобы точно не унаследовать display: none */
+    display: block;
     transition: max-height 0.3s ease, opacity 0.25s ease, visibility 0.25s ease;
-
     li {
       padding: 12px 18px;
       font-size: 16px;
@@ -293,12 +255,10 @@
       cursor: pointer;
       transition: background-color 0.15s ease, color 0.15s ease;
       font-family: 'Montserrat', sans-serif;
-
       &:hover {
         background: rgba(106, 62, 62, 0.08);
         color: var(--color-accent-primary);
       }
-
       &.selected {
         background: var(--color-bg-primary);
         color: var(--color-accent-primary);
@@ -306,8 +266,6 @@
       }
     }
   }
-
-  /* Открытое состояние */
   &__custom-select.open {
     .popup-service__custom-select-trigger {
       border-color: var(--color-accent-primary);
@@ -321,7 +279,7 @@
       opacity: 1;
       visibility: visible;
       max-height: 300px;
-      overflow-y: auto; /* на случай, если не влезет */
+      overflow-y: auto;
     }
   }
   &__custom-select.open {
@@ -337,15 +295,13 @@
       opacity: 1;
       visibility: visible;
       max-height: 300px;
-      overflow-y: auto; /* на случай, если не влезет */
+      overflow-y: auto;
     }
   }
-  /* ---------- Остальные элементы формы ---------- */
   &__submit {
     width: 100%;
     margin-bottom: 16px;
   }
-
   &__policy {
     max-width: 420px;
     margin: 0 auto 24px;
@@ -353,7 +309,6 @@
     color: var(--color-text-secondary);
     line-height: 1.5;
   }
-
   &__logo {
     width: 134px;
     margin: 0 auto;

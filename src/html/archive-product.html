@@ -1,0 +1,354 @@
+@@include('./common/header.html')
+<section class="catalog-page m-100">
+    <section class="catalog-page__main">
+        <div class="container">
+            <h1 class="catalog-page__title">Каталог цветов и подарков</h1>
+            <div class="catalog-page__toolbar">
+                <div class="catalog-page__toolbar-row">
+                    <button class="catalog-page__filters-btn button button--primary button--sm">
+                        <span>Фильтры</span>
+                        <span class="catalog-page__filters-count">0</span>
+                    </button>
+                    <div class="catalog-page__sort">
+                        <div class="custom-select">
+                            <button type="button" class="custom-select__trigger">
+                                <span class="custom-select__text">Популярные</span>
+                                <svg class="custom-select__arrow"><use xlink:href="./img/sprites.svg#arrow"></use></svg>
+                            </button>
+                            <ul class="custom-select__options">
+                                <li data-value="popularity" class="selected">Популярные</li>
+                                <li data-value="menu_order">По умолчанию</li>
+                                <li data-value="price_asc">Сначала дешевле</li>
+                                <li data-value="price_desc">Сначала дороже</li>
+                                <li data-value="date">Новинки</li>
+                            </ul>
+                            <select name="orderby" class="custom-select__hidden-select">
+                                <option value="popularity" selected>Популярные</option>
+                                <option value="menu_order">По умолчанию</option>
+                                <option value="price_asc">Сначала дешевле</option>
+                                <option value="price_desc">Сначала дороже</option>
+                                <option value="date">Новинки</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="catalog-page__search">
+                        <input type="text" placeholder="Поиск букетов" class="catalog-page__search-input">
+                        <button class="catalog-page__search-btn" aria-label="Поиск">
+                            <svg width="18" height="18"><use xlink:href="img/sprites.svg#icon-search"></use></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="catalog-page__active-filters active-filters">
+                    <div class="active-filters__head">
+                        <div class="active-filters__title">Активные фильтры</div>
+                        <button class="active-filters__clear" type="button">Очистить</button>
+                    </div>
+                    <ul class="active-filters__list"></ul>
+                </div>
+            </div>
+            <div class="catalog-page__layout">
+                <aside class="catalog-page__filters filters">
+                    <div class="filters__top">
+                        <div class="filters__top-title ui-text ui-text--size-l ui-text--weight-500">
+                            Фильтры
+                        </div>
+                        <button class="filters__close" aria-label="Закрыть фильтры">
+                            <span></span>
+                        </button>
+                    </div>
+                    <form class="filters__form">
+                        <div class="filters__group filter-group">
+                            <div class="filter-group__header">
+                                <h3 class="filter-group__title ui-text ui-text--size-m">Категории</h3>
+                                <button class="filter-group__toggle" type="button"></button>
+                            </div>
+                            <div class="filter-group__content">
+                                <ul class="filter-group__list">
+                                    <li><label class="checkbox"><input type="checkbox" name="category[]" value="bukety"><span>Букеты</span></label></li>
+                                    <li><label class="checkbox"><input type="checkbox" name="category[]" value="boxes"><span>Подарочные коробки</span></label></li>
+                                    <li><label class="checkbox"><input type="checkbox" name="category[]" value="accessories"><span>Аксессуары</span></label></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="filters__group filter-group">
+                            <div class="filter-group__header">
+                                <h3 class="filter-group__title ui-text ui-text--size-m">Цена</h3>
+                                <button class="filter-group__toggle" type="button"></button>
+                            </div>
+                            <div class="filter-group__content">
+                                <div class="price-range">
+                                    <input type="number" class="price-range__input" name="min_price" placeholder="От">
+                                    <span class="price-range__divider">—</span>
+                                    <input type="number" class="price-range__input" name="max_price" placeholder="До">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filters__group filter-group">
+                            <div class="filter-group__header">
+                                <h3 class="filter-group__title ui-text ui-text--size-m">Событие</h3>
+                                <button class="filter-group__toggle" type="button"></button>
+                            </div>
+                            <div class="filter-group__content">
+                                <ul class="filter-group__list">
+                                    <li><label class="checkbox"><input type="checkbox" name="event[]" value="birthday"><span>День рождения</span></label></li>
+                                    <li><label class="checkbox"><input type="checkbox" name="event[]" value="wedding"><span>Свадьба</span></label></li>
+                                    <li><label class="checkbox"><input type="checkbox" name="event[]" value="anniversary"><span>Юбилей</span></label></li>
+                                    <li><label class="checkbox"><input type="checkbox" name="event[]" value="mom"><span>Маме</span></label></li>
+                                    <li><label class="checkbox"><input type="checkbox" name="event[]" value="man"><span>Мужчине</span></label></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="filters__group filter-group">
+                            <div class="filter-group__header">
+                                <h3 class="filter-group__title ui-text ui-text--size-m">Цветок</h3>
+                                <button class="filter-group__toggle" type="button"></button>
+                            </div>
+                            <div class="filter-group__content">
+                                <ul class="filter-group__list">
+                                    <li><label class="checkbox"><input type="checkbox" name="flower[]" value="rose"><span>Роза</span></label></li>
+                                    <li><label class="checkbox"><input type="checkbox" name="flower[]" value="chrysanthemum"><span>Хризантема</span></label></li>
+                                    <li><label class="checkbox"><input type="checkbox" name="flower[]" value="eustoma"><span>Эустома</span></label></li>
+                                    <li><label class="checkbox"><input type="checkbox" name="flower[]" value="tulip"><span>Тюльпан</span></label></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="filters__group filter-group">
+                            <div class="filter-group__header">
+                                <h3 class="filter-group__title ui-text ui-text--size-m">Основной цвет</h3>
+                                <button class="filter-group__toggle" type="button"></button>
+                            </div>
+                            <div class="filter-group__content">
+                                <ul class="filter-group__list filter-group__list--colors">
+                                    <li><label class="color-radio"><input type="radio" name="main_color" value="white"><div class="color-radio__left"><span class="color-radio__indicator" style="background-color:#FFFFFF;border:1px solid #DDD;"></span><span class="color-radio__text">Белый</span></div><svg class="color-radio__check"><use xlink:href="./img/sprites.svg#arrow"></use></svg></label></li>
+                                    <li><label class="color-radio"><input type="radio" name="main_color" value="beige"><div class="color-radio__left"><span class="color-radio__indicator" style="background-color:#F5F5DC;"></span><span class="color-radio__text">Бежевый</span></div><svg class="color-radio__check"><use xlink:href="./img/sprites.svg#arrow"></use></svg></label></li>
+                                    <li><label class="color-radio"><input type="radio" name="main_color" value="red"><div class="color-radio__left"><span class="color-radio__indicator" style="background-color:#E33B3B;"></span><span class="color-radio__text">Красный</span></div><svg class="color-radio__check"><use xlink:href="./img/sprites.svg#arrow"></use></svg></label></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="filters__group filter-group">
+                            <div class="filter-group__header">
+                                <h3 class="filter-group__title ui-text ui-text--size-m">Размер букета</h3>
+                                <button class="filter-group__toggle" type="button"></button>
+                            </div>
+                            <div class="filter-group__content">
+                                <ul class="filter-group__list">
+                                    <li><label class="checkbox"><input type="checkbox" name="size[]" value="20x40"><span>20x40 см</span></label></li>
+                                    <li><label class="checkbox"><input type="checkbox" name="size[]" value="30x50"><span>30x50 см</span></label></li>
+                                    <li><label class="checkbox"><input type="checkbox" name="size[]" value="40x60"><span>40x60 см</span></label></li>
+                                    <li><label class="checkbox"><input type="checkbox" name="size[]" value="50x70"><span>50x70 см</span></label></li>
+                                    <li><label class="checkbox"><input type="checkbox" name="size[]" value="70x70"><span>70x70 см</span></label></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- ГЛАВНОЕ ИЗМЕНЕНИЕ: вместо .filters__bottom используем .filters__actions -->
+                        <div class="filters__actions">
+                            <button type="reset" class="filters__reset button button--secondary">Сбросить</button>
+                            <button type="submit" class="filters__apply button button--primary">Применить</button>
+                        </div>
+                    </form>
+                </aside>
+                <div class="catalog-page__content">
+                    <div class="catalog-page__products products">
+                        <div class="products__grid" id="productsGrid">
+                            <div class="product-card" data-product-type="bouquet" data-price="430">
+                                <a href="#" class="product-card__overlay-link" aria-label="Подробнее о товаре"></a>
+                                <div class="product-card__badges">
+                                    <span class="badge badge--in-stock">В наличии</span>
+                                </div>
+                                <div class="product-card__image">
+                                    <img src="img/jpg/buket1.jpg" alt="Нежность роз">
+                                </div>
+                                <div class="product-card__body">
+                                    <h3 class="product-card__name">Букет «Нежность роз»</h3>
+                                    <div class="product-card__desc">Нежные розы кремового оттенка в крафтовой упаковке.</div>
+                                    <div class="product-card__meta">
+                                        <span class="product-card__price">430 руб.</span>
+                                    </div>
+                                    <button class="product-card__quick-order button button--primary button--sm">В корзину</button>
+                                </div>
+                            </div>
+                            <div class="product-card" data-product-type="bouquet" data-price="190">
+                                <a href="#" class="product-card__overlay-link" aria-label="Подробнее о товаре"></a>
+                                <div class="product-card__badges">
+                                    <span class="badge badge--in-stock">В наличии</span>
+                                    <span class="badge badge--oasis">В оазисе</span>
+                                </div>
+                                <div class="product-card__image">
+                                    <img src="img/jpg/buket2.jpg" alt="Садовые пионы">
+                                </div>
+                                <div class="product-card__body">
+                                    <h3 class="product-card__name">Букет «Садовые пионы»</h3>
+                                    <div class="product-card__desc">Пышные пионы на флористической губке – свежесть до 7 дней.</div>
+                                    <div class="product-card__meta">
+                                        <span class="product-card__price">320 руб.</span>
+                                    </div>
+                                    <button class="product-card__quick-order button button--primary button--sm">В корзину</button>
+                                </div>
+                            </div>
+                            <div class="product-card" data-product-type="accessory" data-price="50">
+                                <a href="#" class="product-card__overlay-link" aria-label="Подробнее о товаре"></a>
+                                <div class="product-card__badges">
+                                    <span class="badge badge--in-stock">В наличии</span>
+                                </div>
+                                <div class="product-card__image">
+                                    <img src="img/jpg/buket10.jpg" alt="Мягкая игрушка заяц">
+                                </div>
+                                <div class="product-card__body">
+                                    <h3 class="product-card__name">Мягкая игрушка «Заяц»</h3>
+                                    <div class="product-card__desc">Плюшевый заяц 35 см. Прекрасное дополнение к букету.</div>
+                                    <div class="product-card__meta">
+                                        <span class="product-card__price">50 руб.</span>
+                                    </div>
+                                    <button class="product-card__quick-order button button--primary button--sm">В корзину</button>
+                                </div>
+                            </div>
+                            <div class="product-card" data-product-type="accessory" data-in-stock="false">
+                                <a href="#" class="product-card__overlay-link" aria-label="Подробнее о товаре"></a>
+                                <div class="product-card__badges"></div>
+                                <div class="product-card__image">
+                                    <img src="img/jpg/buket11.jpg" alt="Открытка ручной работы">
+                                </div>
+                                <div class="product-card__body">
+                                    <h3 class="product-card__name">Открытка с вышивкой</h3>
+                                    <div class="product-card__desc">Именная открытка ручной работы, можно добавить любое пожелание.</div>
+                                    <div class="product-card__meta">
+                                        <span class="product-card__price">10 руб.</span>
+                                    </div>
+                                    <button class="product-card__quick-order button button--primary button--sm">В корзину</button>
+                                </div>
+                            </div>
+                            <div class="product-card" data-product-type="accessory" data-price="60">
+                                <a href="#" class="product-card__overlay-link" aria-label="Подробнее о товаре"></a>
+                                <div class="product-card__badges">
+                                    <span class="badge badge--in-stock">В наличии</span>
+                                </div>
+                                <div class="product-card__image">
+                                    <img src="img/jpg/buket12.jpg" alt="Подарочная коробка">
+                                </div>
+                                <div class="product-card__body">
+                                    <h3 class="product-card__name">Коробка «Винтаж»</h3>
+                                    <div class="product-card__desc">Деревянная шкатулка, ручная роспись.</div>
+                                    <div class="product-card__meta">
+                                        <span class="product-card__price">60 руб.</span>
+                                    </div>
+                                    <button class="product-card__quick-order button button--primary button--sm">В корзину</button>
+                                </div>
+                            </div>
+                            <div class="product-card" data-product-type="bouquet" data-price="140">
+                                <a href="#" class="product-card__overlay-link" aria-label="Подробнее о товаре"></a>
+                                <div class="product-card__badges">
+                                    <span class="badge badge--in-stock">В наличии</span>
+                                </div>
+                                <div class="product-card__image">
+                                    <img src="img/jpg/buket13.jpg" alt="Монобукет хризантем">
+                                </div>
+                                <div class="product-card__body">
+                                    <h3 class="product-card__name">Монобукет хризантем</h3>
+                                    <div class="product-card__desc">10 крупных хризантем, упаковка фетруб.</div>
+                                    <div class="product-card__meta">
+                                        <span class="product-card__price">140 руб.</span>
+                                    </div>
+                                    <button class="product-card__quick-order button button--primary button--sm">В корзину</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="catalog-page__pagination pagination">
+                        <ul class="pagination__list">
+                            <li class="pagination__item pagination__item--prev">
+                                <a href="#" class="pagination__link pagination__arrow pagination__arrow--prev" aria-label="Предыдущая страница">
+                                    <svg class="pagination__arrow-icon"><use xlink:href="./img/sprites.svg#arrow"></use></svg>
+                                </a>
+                            </li>
+                            <li class="pagination__item"><a href="#" class="pagination__link pagination__link--active">1</a></li>
+                            <li class="pagination__item"><a href="#" class="pagination__link">2</a></li>
+                            <li class="pagination__item"><a href="#" class="pagination__link">3</a></li>
+                            <li class="pagination__item pagination__item--next">
+                                <a href="#" class="pagination__link pagination__arrow pagination__arrow--next" aria-label="Следующая страница">
+                                    <svg class="pagination__arrow-icon"><use xlink:href="./img/sprites.svg#arrow"></use></svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<section class="day-bouquet m-100">
+    <div class="container">
+
+        <h2 class="ui-text ui-text--center ui-text--uppercase ui-text--weight-500">
+            Букет дня “Нежное утро”
+        </h2>
+
+        <div class="day-bouquet__card">
+
+            <div class="day-bouquet__image-wrapper">
+                <img src="../img/jpg/buket1.jpg" alt="Букет дня Нежное утро" class="day-bouquet__image">
+            </div>
+
+            <div class="day-bouquet__info">
+                <p class="day-bouquet__slogan ui-text ui-text--size-s">
+                    “Идеальный выбор, если хочешь порадовать без повода”
+                </p>
+
+                <div class="day-bouquet__parameters">
+                    <h3 class="day-bouquet__param-title ui-text ui-text--size-xs ui-text--weight-500">
+                        Параметры:
+                    </h3>
+                    <ul class="day-bouquet__param-list ui-text ui-text--size-xs">
+                        <li>15 белых роз</li>
+                        <li>4 красные розы</li>
+                        <li>красная бумага</li>
+                        <li>синяя бумага</li>
+                        <li>размер 50х70 см</li>
+                    </ul>
+                </div>
+
+                <div class="day-bouquet__features">
+                    <div class="day-bouquet__feature-item">
+                        <div class="day-bouquet__feature-icon">
+                            <svg viewBox="0 0 130 130">
+                                <use xlink:href="./img/sprites.svg#icon-flower-photo"></use>
+                            </svg>
+                        </div>
+                        <span class="ui-text ui-text--size-xxs">Фото букета перед отправкой</span>
+                    </div>
+
+                    <div class="day-bouquet__feature-item">
+                        <div class="day-bouquet__feature-icon">
+                            <svg viewBox="0 0 130 130">
+                                <use xlink:href="./img/sprites.svg#icon-delivery"></use>
+                            </svg>
+                        </div>
+                        <span class="ui-text ui-text--size-xxs">Доставка за 2 часа</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-bouquet__action">
+                <p class="day-bouquet__countdown ui-text ui-text--size-l ui-text--weight-600">
+                    Успейте заказать<br>до 21:00
+                </p>
+
+                <div class="day-bouquet__price-block">
+                    <span class="day-bouquet__old-price ui-text ui-text--size-l">210 руб.</span>
+                    <span class="day-bouquet__new-price ui-text ui-text--size-xxxl ui-text--weight-600">177 руб.</span>
+                </div>
+
+                <button class="button button--md button--primary ui-text--uppercase ui-text--weight-600">
+                    Быстрый заказ
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+@@include('./common/footer.html')

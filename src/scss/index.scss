@@ -24,8 +24,9 @@
 @use 'components/services';
 @use 'components/news';
 @use 'components/article';
-
-
+@use 'components/catalog';
+@use 'components/filter';
+@use 'components/bouquet-day';
 
 
 @use 'components/notifications';

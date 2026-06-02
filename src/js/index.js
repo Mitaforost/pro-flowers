@@ -1,6 +1,8 @@
 import { initBurger } from './modules/burger';
 import { initBannerSlider } from './modules/slider-banner';
 import { initBestsellersSlider } from './modules/slider-bestsellers';
+import { initSimilarSlider } from './modules/slider-similar';
+import { initCrossSellSlider } from './modules/slider-cross-sell';
 import { initReviewsSlider } from './modules/slider-reviews';
 import { initGlobalPopups } from './modules/popup-base';
 import { initProductPopup } from './modules/popup-product';
@@ -10,7 +12,11 @@ import { initUI } from './modules/init-ui';
 import { initCheckoutForm } from './modules/checkout-form';
 import { initServicePopup } from './modules/popup-services.js';
 import { initCatalogFilters } from './modules/catalog-filters';
-import { initAccessoryBadge } from './modules/accessory-logic';   // <-- добавить
+import { initAccessoryBadge } from './modules/accessory-logic';
+import { initProductTabs } from './modules/product.js';
+import { initProductGallery } from './modules/gallery-product.js';
+import { initCart } from './modules/cart.js';
+
 
 document.addEventListener('DOMContentLoaded', () => {
     initGlobalPopups();
@@ -20,10 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
     initCatalogFilters();
     initBannerSlider();
     initBestsellersSlider();
+    initSimilarSlider();
+    initCrossSellSlider();
     initProductPopup();
     initServicePopup();
     initGalleryViewer();
     initCheckoutForm();
     initUI();
     initAccessoryBadge();
+    initProductGallery();
+    initProductTabs();
+    initCart();
 });

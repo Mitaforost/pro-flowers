@@ -3,6 +3,7 @@
 @use 'components/ui-text';
 @use 'components/button';
 @use 'components/header';
+@use 'components/breadcrumbs';
 @use 'components/banner';
 @use 'components/catalog-preview';
 @use 'components/products';
@@ -27,8 +28,14 @@
 @use 'components/catalog';
 @use 'components/filter';
 @use 'components/bouquet-day';
+@use 'components/product';
+@use 'components/cart';
 
 
+
+
+
+@use 'components/eror-page';
 @use 'components/notifications';
 @use 'components/cookie';
 @use 'components/popup';

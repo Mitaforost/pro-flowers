@@ -5,7 +5,6 @@ import { initSimilarSlider } from './modules/slider-similar';
 import { initCrossSellSlider } from './modules/slider-cross-sell';
 import { initReviewsSlider } from './modules/slider-reviews';
 import { initGlobalPopups } from './modules/popup-base';
-import { initProductPopup } from './modules/popup-product';
 import { initGalleryViewer } from './modules/gallery-viewer';
 import { initFaq } from './modules/faq';
 import { initUI } from './modules/init-ui';
@@ -16,7 +15,8 @@ import { initAccessoryBadge } from './modules/accessory-logic';
 import { initProductTabs } from './modules/product.js';
 import { initProductGallery } from './modules/gallery-product.js';
 import { initCart } from './modules/cart.js';
-
+import { initThankyou } from './modules/thankyou.js';
+import { initDayBouquetQuickOrder } from './modules/day-bouquet.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initGlobalPopups();
@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initFaq();
     initCatalogFilters();
     initBannerSlider();
+    initDayBouquetQuickOrder();
     initBestsellersSlider();
     initSimilarSlider();
     initCrossSellSlider();
-    initProductPopup();
     initServicePopup();
     initGalleryViewer();
     initCheckoutForm();
@@ -36,5 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
     initAccessoryBadge();
     initProductGallery();
     initProductTabs();
-    initCart();
+
+    if (document.getElementById('cartWrapper')) {
+        initCart();
+    }
+
+    if (document.getElementById('orderDetails')) {
+        initThankyou();
+    }
 });

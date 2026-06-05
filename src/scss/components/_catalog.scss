@@ -121,27 +121,26 @@
     order: 2;
   }
 
-  // Кастомный селект внутри каталога
   .custom-select {
     position: relative;
-    min-width: 180px;
+    min-width: 225px;
 
     &__trigger {
-      min-width: 184px;
+      min-width: 230px;
       width: 100%;
-      height: 42px;
+      height: 46px;
       border: 1px solid var(--color-border);
       border-radius: var(--border-radius);
       background: var(--color-bg-card);
       font-family: inherit;
-      font-size: 14px;
+      font-size: 16px;
       color: var(--color-text-primary);
       text-align: left;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 42px 0 14px;
+      padding: 0 42px 0 16px;
       transition: border-color 0.2s, box-shadow 0.2s;
 
       &:hover {
@@ -186,8 +185,8 @@
       transition: max-height 0.3s ease, opacity 0.25s, visibility 0.25s;
 
       li {
-        padding: 12px 14px;
-        font-size: 14px;
+        padding: 14px 16px;
+        font-size: 16px;
         cursor: pointer;
         transition: background 0.15s, color 0.15s;
 
@@ -315,7 +314,6 @@
     }
   }
 
-  // Медиа-запросы для каталога
   @media (max-width: 1024px) {
     &__layout {
       display: block;
@@ -350,6 +348,13 @@
 
       &__trigger {
         height: 48px;
+        font-size: 16px;
+        padding: 0 42px 0 16px;
+      }
+
+      &__options li {
+        font-size: 16px;
+        padding: 14px 16px;
       }
     }
 
@@ -390,7 +395,18 @@
 
     &__sort .custom-select {
       width: 100%;
-      min-width: unset;
+
+      &__trigger {
+        height: 56px;
+        font-size: 18px;
+        white-space: normal;
+        padding: 8px 42px 8px 16px;
+      }
+
+      &__options li {
+        font-size: 18px;
+        padding: 15px 18px;
+      }
     }
   }
 
@@ -413,7 +429,6 @@
   }
 }
 
-// Пагинация (отдельный блок, но можно вложить в .catalog-page при желании)
 .pagination {
   margin-top: 40px;
 
@@ -483,7 +498,6 @@
   }
 }
 
-// Сетка товаров
 .products__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

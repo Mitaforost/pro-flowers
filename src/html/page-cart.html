@@ -3,126 +3,71 @@
 <section class="cart">
     <div class="container">
         <h1 class="cart__title ui-text ui-text--size-xxl ui-text--center">Корзина</h1>
+
         <div class="cart__wrapper" id="cartWrapper">
-            <div class="cart__products" id="cartProducts">
-                <div class="cart-item" data-id="211" data-price="177" data-type="main">
-                    <div class="cart-item__image">
-                        <img src="./img/jpg/buket1.jpg" alt="Букет №19 Роз Джумилия">
-                    </div>
-                    <div class="cart-item__content">
-                        <h3 class="cart-item__title">Букет №19 Роз Джумилия</h3>
-                        <p class="cart-item__sku">Артикул: 211</p>
-                        <div class="cart-item__price" data-unit-price="177">177 руб.</div>
-                        <div class="cart-item__quantity">
-                            <button class="cart-item__minus" type="button">−</button>
-                            <input type="number" value="1" min="1" step="1" data-quantity-input>
-                            <button class="cart-item__plus" type="button">+</button>
-                        </div>
-                    </div>
-                    <div class="cart-item__meta">
-                        <div>Размер: Высота 70 см</div>
-                        <div>Цвет: Розовый</div>
-                        <div>Состав: Роза красная (25 шт), Лента (1 шт)</div>
-                    </div>
-                    <div class="cart-item__actions">
-                        <button class="button button--md button--primary add-accessory" data-type="postcard">Добавить открытку</button>
-                        <button class="button button--md button--primary add-accessory" data-type="gift">Добавить подарок</button>
-                    </div>
-                    <button class="cart-item__remove" title="Удалить">✕</button>
-                </div>
-
-                <div class="cart-item" data-id="221" data-price="187" data-type="main">
-                    <div class="cart-item__image">
-                        <img src="./img/jpg/buket2.jpg" alt="Букет №21 Роз Джумилия 2">
-                    </div>
-                    <div class="cart-item__content">
-                        <h3 class="cart-item__title">Букет №21 Роз Джумилия 2</h3>
-                        <p class="cart-item__sku">Артикул: 221</p>
-                        <div class="cart-item__price" data-unit-price="187">187 руб.</div>
-                        <div class="cart-item__quantity">
-                            <button class="cart-item__minus">−</button>
-                            <input type="number" value="1" min="1" step="1" data-quantity-input>
-                            <button class="cart-item__plus">+</button>
-                        </div>
-                    </div>
-                    <div class="cart-item__meta">
-                        <div>Размер: Высота 60 см</div>
-                        <div>Цвет: Белый / Розовый</div>
-                        <div>Состав: Роза розовая (25 шт), Лента (1 шт)</div>
-                    </div>
-                    <div class="cart-item__actions">
-                        <button class="button button--md button--primary add-accessory" data-type="postcard">Добавить открытку</button>
-                        <button class="button button--md button--primary add-accessory" data-type="gift">Добавить подарок</button>
-                    </div>
-                    <button class="cart-item__remove">✕</button>
-                </div>
-            </div>
-            <div class="cart-extra">
-                <h2 class="cart-extra__title">Дополнительно</h2>
-                <div class="cart-extra__list" id="cartExtra">
-                    <div class="cart-item cart-item--extra" data-id="2211" data-price="10" data-type="extra">
-                        <div class="cart-item__image">
-                            <img src="./img/jpg/postcard.jpg" alt="Открытка №21">
-                        </div>
-                        <div class="cart-item__content">
-                            <h3 class="cart-item__title">Открытка №21</h3>
-                            <div class="cart-item__price" data-unit-price="10">10 руб.</div>
-                            <div class="cart-item__quantity">
-                                <button class="cart-item__minus">−</button>
-                                <input type="number" value="1" min="1" step="1" data-quantity-input>
-                                <button class="cart-item__plus">+</button>
-                            </div>
-                        </div>
-                        <button class="cart-item__remove">✕</button>
-                    </div>
-                </div>
+            <!-- Основные товары -->
+            <div class="cart__section" id="cartMainBlock">
+                <h2 class="cart__section-title">ВЫ ДОБАВИЛИ В КОРЗИНУ</h2>
+                <div class="cart__products" id="cartProducts"></div>
             </div>
 
-            <!-- Блок оформления -->
+            <!-- Дополнительные товары -->
+            <div class="cart__section cart-extra hidden" id="cartExtraBlock">
+                <h2 class="cart__section-title">ДОПОЛНИТЕЛЬНО</h2>
+                <div class="cart-extra__list" id="cartExtraList"></div>
+            </div>
+
+            <!-- Две колонки: форма доставки + итоги -->
             <div class="cart-checkout">
                 <div class="cart-checkout__left">
-                    <!-- Способ доставки -->
+                    <!-- Способ получения -->
                     <div class="cart-delivery">
-                        <h3 class="cart-delivery__title">Способ доставки</h3>
+                        <h3 class="cart-delivery__title">Способ получения</h3>
                         <label class="cart-radio">
                             <input type="radio" name="delivery" value="pickup" checked> <span>Самовывоз</span>
                         </label>
                         <label class="cart-radio">
                             <input type="radio" name="delivery" value="courier"> <span>Курьерская доставка</span>
                         </label>
-
                         <div class="cart-delivery__pickup">
-                            <p>г. Минск, ул. Янки Купалы, 25 (здание "Журавинка")</p>
+                            <p>г. Минск, улица Веры Хоружей, 17</p>
                             <button class="button button--primary button--sm show-map" type="button">Карта</button>
                         </div>
-
                         <div class="cart-delivery__courier hidden">
+                            <input type="text" placeholder="Имя получателя *" class="cart-input" id="recipientName">
+                            <input type="tel" placeholder="Телефон получателя *" class="cart-input" id="recipientPhone">
                             <input type="text" placeholder="Улица *" class="cart-input" id="street">
                             <input type="text" placeholder="Дом *" class="cart-input" id="house">
                             <input type="text" placeholder="Квартира" class="cart-input" id="apartment">
-                            <input type="tel" placeholder="Телефон получателя *" class="cart-input" id="recipientPhone">
-                            <textarea class="cart-input" placeholder="Комментарий к заказу" id="comment"></textarea>
+                            <textarea class="cart-input" placeholder="Комментарий к заказу" id="comment" rows="2"></textarea>
                         </div>
                     </div>
-
+                    <!-- Дата и время -->
                     <div class="cart-date">
                         <div class="cart-date__field">
                             <label>Дата доставки</label>
-                            <input type="date" class="cart-input" id="deliveryDate">
+                            <input type="text" class="cart-input datepicker-input" id="deliveryDate" placeholder="дд.мм.гггг" autocomplete="off">
                         </div>
                         <div class="cart-date__field">
                             <label>Время доставки</label>
-                            <select class="cart-input" id="deliveryTime">
-                                <option value="">Выберите промежуток</option>
-                                <option>09:00–12:00</option>
-                                <option>12:00–15:00</option>
-                                <option>15:00–18:00</option>
-                                <option>18:00–21:00</option>
-                            </select>
+                            <div class="cart-time-select" data-custom-select>
+                                <button class="cart-time-select__trigger" type="button">
+                                    <span class="cart-time-select__text placeholder">Выберите промежуток</span>
+                                    <svg class="cart-time-select__arrow" width="14" height="9">
+                                        <use xlink:href="./img/sprites.svg#arrow"></use>
+                                    </svg>
+                                </button>
+                                <ul class="cart-time-select__options">
+                                    <li data-value="09:00–12:00">09:00–12:00</li>
+                                    <li data-value="12:00–15:00">12:00–15:00</li>
+                                    <li data-value="15:00–18:00">15:00–18:00</li>
+                                    <li data-value="18:00–21:00">18:00–21:00</li>
+                                </ul>
+                                <input type="hidden" name="deliveryTime" id="deliveryTime">
+                            </div>
                         </div>
                     </div>
                 </div>
-
                 <aside class="cart-summary">
                     <h3 class="cart-summary__title">Детализация заказа</h3>
                     <div class="cart-summary__rows" id="summaryRows"></div>
@@ -133,13 +78,20 @@
                     <div class="cart-summary__form">
                         <input type="text" placeholder="Ваше имя *" class="cart-input" id="customerName">
                         <input type="tel" placeholder="Ваш телефон *" class="cart-input" id="customerPhone">
+                        <input type="email" placeholder="Ваш email" class="cart-input" id="customerEmail">
                         <button class="button button--primary button--lg" id="checkoutBtn">Оформить заказ</button>
+                    </div>
+                    <div class="cart-auth">
+                        <p>Авторизуйтесь, чтобы видеть историю заказов, оплатить заказ после подтверждения и вводить меньше полей.</p>
+                        <a href="./login.html" class="button button--secondary button--sm">Войти</a>
                     </div>
                 </aside>
             </div>
         </div>
+
+        <!-- Пустая корзина -->
         <div class="cart-empty hidden" id="emptyCartBlock">
-            <div class="cart-empty__icon">🛒</div>
+            <svg class="cart-empty__icon"><use xlink:href="./img/sprites.svg#icon-order"></use></svg>
             <h2 class="cart-empty__title">Ваша корзина пуста</h2>
             <p class="cart-empty__text">Но это легко исправить! Перейдите в каталог и выберите букет.</p>
             <a href="./catalog.html" class="button button--primary button--lg">Перейти в каталог</a>

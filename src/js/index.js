@@ -17,6 +17,10 @@ import { initProductGallery } from './modules/gallery-product.js';
 import { initCart } from './modules/cart.js';
 import { initThankyou } from './modules/thankyou.js';
 import { initDayBouquetQuickOrder } from './modules/day-bouquet.js';
+import { initAccount } from './modules/account';
+import { initAuthForms } from './modules/auth-forms.js';
+import { initScrollToTop } from './modules/scroll-top';
+import { initCallbackButton } from './modules/callback';
 
 document.addEventListener('DOMContentLoaded', () => {
     initGlobalPopups();
@@ -36,7 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initAccessoryBadge();
     initProductGallery();
     initProductTabs();
-
+    initAccount();
+    initAuthForms();
+    initScrollToTop();
+    initCallbackButton();
     if (document.getElementById('cartWrapper')) {
         initCart();
     }

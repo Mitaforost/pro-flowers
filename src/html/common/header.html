@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../css/stylesheet.css">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="./library/datepicker/datepicker.min.css">
+    <link rel="stylesheet" href="../library/noUiSlider/css/nouislider.min.css">
     <link rel="stylesheet" href="../library/swiper/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="../css/index.css">
 </head>
@@ -40,12 +41,12 @@
                     </svg>
                     <span>+375 29 110-80-50</span>
                 </a>
-                <div class="header__lang ui-text ui-text--size-s ui-text--weight-500">
-                    <span>BYN</span>
-                    <svg class="header__lang-arrow">
-                        <use xlink:href="./img/sprites.svg#arrow"></use>
-                    </svg>
-                </div>
+<!--                <div class="header__lang ui-text ui-text&#45;&#45;size-s ui-text&#45;&#45;weight-500">-->
+<!--                    <span>BYN</span>-->
+<!--                    <svg class="header__lang-arrow">-->
+<!--                        <use xlink:href="./img/sprites.svg#arrow"></use>-->
+<!--                    </svg>-->
+<!--                </div>-->
                 <a href="#"
                    class="header__account ui-text ui-text--size-s ui-text--weight-500">
                     <svg class="header__account-icon">
@@ -63,12 +64,12 @@
                 </a>
             </div>
             <div class="header__actions">
-                <div class="header__lang header__lang--mobile ui-text ui-text--size-xs ui-text--weight-500">
-                    <span>BYN</span>
-                    <svg class="header__lang-arrow">
-                        <use xlink:href="./img/sprites.svg#arrow"></use>
-                    </svg>
-                </div>
+<!--                <div class="header__lang header__lang&#45;&#45;mobile ui-text ui-text&#45;&#45;size-xs ui-text&#45;&#45;weight-500">-->
+<!--                    <span>BYN</span>-->
+<!--                    <svg class="header__lang-arrow">-->
+<!--                        <use xlink:href="./img/sprites.svg#arrow"></use>-->
+<!--                    </svg>-->
+<!--                </div>-->
                 <a href="#" class="header__account header__account--mobile">
                     <svg class="header__account-icon">
                         <use xlink:href="./img/sprites.svg#icon-user"></use>
@@ -146,9 +147,10 @@
 </header>
 <div class="mobile-menu">
     <div class="mobile-menu__inner">
+        <!-- Блок 1: лого и крестик -->
         <div class="mobile-menu__top">
-            <a href="/" class="mobile-menu__logo">
-                <svg class="mobile-menu__logo-icon">
+            <a href="/" class="header__logo">
+                <svg class="header__logo-icon">
                     <use xlink:href="./img/sprites.svg#icon-logo"></use>
                 </svg>
             </a>
@@ -156,6 +158,8 @@
                 <span class="mobile-menu__close-icon"></span>
             </div>
         </div>
+
+        <!-- Блок 2: навигация -->
         <ul class="mobile-menu__list">
             <li>
                 <a href="#"
@@ -194,53 +198,54 @@
                 </a>
             </li>
         </ul>
-        <div class="mobile-menu__contacts">
-            <a href="tel:+375291108050"
-               class="ui-text ui-text--size-s ui-text--weight-500">
-                +375 29 110 80-50
-            </a>
-            <a href="mailto:proflowers.minsk@gmail.com"
-               class="ui-text ui-text--size-s">
-                proflowers.minsk@gmail.com
-            </a>
-        </div>
-        <div class="mobile-menu__pickup">
-            <div class="ui-text ui-text--size-xs ui-text--uppercase ui-text--weight-600">
-                Самовывоз
+
+        <div class="mobile-menu__bottom">
+            <div class="mobile-menu__info-item">
+                <a href="tel:+375291108050" class="ui-text ui-text--size-s ui-text--weight-500">
+                    +375 29 110 80-50
+                </a>
+                <a href="mailto:proflowers.minsk@gmail.com" class="ui-text ui-text--size-s">
+                    proflowers.minsk@gmail.com
+                </a>
             </div>
-            <p class="ui-text ui-text--size-xs">
-                г. Минск, улица Веры Хоружей, 17
-            </p>
-        </div>
-        <div class="mobile-menu__work">
-            <div class="ui-text ui-text--size-xs ui-text--uppercase ui-text--weight-600">
-                Режим работы
+            <div class="mobile-menu__info-item">
+                <div class="ui-text ui-text--size-xs ui-text--uppercase ui-text--weight-600">
+                    Самовывоз
+                </div>
+                <p class="ui-text ui-text--size-xs">
+                    г. Минск, улица Веры Хоружей, 17
+                </p>
             </div>
-            <p class="ui-text ui-text--size-xs">
-                Каждый день с 9:00 до 21:00
-            </p>
-        </div>
-        <div class="mobile-menu__socials">
-            <a href="#">
-                <svg class="mobile-menu__socials-icon">
-                    <use xlink:href="./img/sprites.svg#icon-instagram"></use>
-                </svg>
-            </a>
-            <a href="#">
-                <svg class="mobile-menu__socials-icon">
-                    <use xlink:href="./img/sprites.svg#icon-whatsapp"></use>
-                </svg>
-            </a>
-            <a href="#">
-                <svg class="mobile-menu__socials-icon">
-                    <use xlink:href="./img/sprites.svg#icon-viber"></use>
-                </svg>
-            </a>
-            <a href="#">
-                <svg class="mobile-menu__socials-icon">
-                    <use xlink:href="./img/sprites.svg#icon-telegram"></use>
-                </svg>
-            </a>
+            <div class="mobile-menu__info-item">
+                <div class="ui-text ui-text--size-xs ui-text--uppercase ui-text--weight-600">
+                    Режим работы
+                </div>
+                <p class="ui-text ui-text--size-xs">
+                    Каждый день с 9:00 до 21:00
+                </p>
+            </div>
+            <div class="mobile-menu__socials">
+                <a href="#">
+                    <svg class="mobile-menu__socials-icon">
+                        <use xlink:href="./img/sprites.svg#icon-instagram"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg class="mobile-menu__socials-icon">
+                        <use xlink:href="./img/sprites.svg#icon-whatsapp"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg class="mobile-menu__socials-icon">
+                        <use xlink:href="./img/sprites.svg#icon-viber"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg class="mobile-menu__socials-icon">
+                        <use xlink:href="./img/sprites.svg#icon-telegram"></use>
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,106 @@
+@@include('./common/header.html')
+
+<section class="register-section m-100">
+    <div class="container">
+        <div class="register-section__head">
+            <h2 class="ui-text ui-text--size-xxl ui-text--uppercase ui-text--weight-400">
+                Регистрация
+            </h2>
+            <p class="register-section__subtitle ui-text ui-text--size-s ui-text--weight-400">
+                Создайте аккаунт, чтобы получать бонусы и управлять заказами
+            </p>
+        </div>
+
+        <div class="register-section__layout">
+            <form class="register-form" id="registerForm" method="post">
+                <div class="register-form__grid">
+                    <div class="register-form__field register-form__field--full">
+                        <label class="ui-text ui-text--size-xxs">Имя</label>
+                        <input type="text" name="first_name" placeholder="Ваше имя">
+                    </div>
+
+                    <div class="register-form__field register-form__field--full">
+                        <label class="ui-text ui-text--size-xxs">Email (необязательно)</label>
+                        <input type="email" name="email" placeholder="your@email.com">
+                    </div>
+
+                    <div class="register-form__field register-form__field--full">
+                        <label class="ui-text ui-text--size-xxs">Телефон *</label>
+                        <input type="tel" name="phone" placeholder="+375 (__) ___-__-__" required>
+                    </div>
+
+                    <div class="register-form__field">
+                        <label class="ui-text ui-text--size-xxs">Пароль *</label>
+                        <div class="password-wrapper">
+                            <input type="password" name="password" placeholder="Минимум 6 символов" required>
+                            <button type="button" class="password-toggle" aria-label="Показать/скрыть пароль">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M1 12s2-7 11-7 11 7 11 7-2 7-11 7-11-7-11-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="register-form__field">
+                        <label class="ui-text ui-text--size-xxs">Подтверждение пароля *</label>
+                        <div class="password-wrapper">
+                            <input type="password" name="confirm_password" placeholder="Повторите пароль" required>
+                            <button type="button" class="password-toggle" aria-label="Показать/скрыть пароль">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M1 12s2-7 11-7 11 7 11 7-2 7-11 7-11-7-11-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="register-form__checkbox register-form__field--full">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="privacy_consent" required>
+                            <span>
+                                Я согласен на <a href="page-privacy.html" target="_blank">обработку персональных данных</a> и принимаю условия <a href="page-offer.html" target="_blank">публичной оферты</a>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="register-form__checkbox register-form__field--full">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="newsletter">
+                            <span>Подписаться на новости и акции</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="button button--primary button--lg register-form__submit">Зарегистрироваться</button>
+
+                    <div class="register-form__login">
+                        <p>Уже есть аккаунт? <a href="page-authorization.html">Войти</a></p>
+                    </div>
+                </div>
+            </form>
+
+            <aside class="register-sidebar">
+                <div class="register-sidebar__card">
+                    <h3 class="ui-text ui-text--size-s ui-text--weight-500">Приветственные 50 бонусов</h3>
+                    <p class="ui-text ui-text--size-xs ui-text--weight-400">
+                        Сразу после регистрации вы получаете бонусы. Оплачивайте бонусами до 30% заказа.
+                    </p>
+                </div>
+                <div class="register-sidebar__card">
+                    <h3 class="ui-text ui-text--size-s ui-text--weight-500">Быстрый заказ без регистрации</h3>
+                    <p class="ui-text ui-text--size-xs ui-text--weight-400">
+                        Вы можете оформить заказ как гость, но с аккаунтом удобнее следить за историей и бонусами.
+                    </p>
+                </div>
+                <div class="register-sidebar__card">
+                    <h3 class="ui-text ui-text--size-s ui-text--weight-500">Свежие цветы каждый день</h3>
+                    <p class="ui-text ui-text--size-xs ui-text--weight-400">
+                        Собственная флористическая мастерская в Минске. Все букеты только из свежих поставок.
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+@@include('./common/footer.html')

@@ -191,6 +191,125 @@
         </div>
     </div>
 </div>
+<div class="scroll-to-top" id="scrollToTop">
+    <button
+            class="scroll-to-top__button"
+            type="button"
+            aria-label="Наверх"
+    >
+        <svg
+                class="scroll-to-top__icon"
+                width="14"
+                height="8"
+                viewBox="0 0 14 8"
+                aria-hidden="true"
+        >
+            <use xlink:href="./img/sprites.svg#arrow"></use>
+        </svg>
+    </button>
+</div>
+<div class="callback-btn">
+    <button class="callback-btn__button" type="button" aria-label="Связаться с нами">
+        <svg class="callback-btn__icon" width="20" height="20" viewBox="0 0 20 20">
+            <use xlink:href="./img/sprites.svg#icon-phone"></use>
+        </svg>
+    </button>
+</div>
+<div class="popup" id="callbackPopup" role="dialog" aria-modal="true" aria-labelledby="callbackPopupTitle">
+    <div class="popup__overlay"></div>
+    <div class="popup__content popup__content--callback">
+        <button class="popup__close" type="button" aria-label="Закрыть окно">×</button>
+
+        <div class="callback-popup">
+            <div class="callback-popup__header">
+                <h3 class="callback-popup__title ui-text ui-text--size-xl ui-text--weight-500" id="callbackPopupTitle">
+                    Обратный звонок
+                </h3>
+                <p class="callback-popup__subtitle ui-text ui-text--size-s">
+                    Оставьте свои контакты, и мы перезвоним вам в ближайшее время
+                </p>
+            </div>
+
+            <form class="callback-popup__form" id="callbackForm">
+                <div class="callback-popup__field">
+                    <input type="text" name="callback_name" placeholder="Ваше имя" required>
+                </div>
+                <div class="callback-popup__field">
+                    <input type="tel" name="callback_phone" placeholder="+375 (__) ___-__-__" required>
+                </div>
+                <div class="callback-popup__field">
+                    <textarea name="callback_comment" placeholder="Комментарий (необязательно)" rows="3"></textarea>
+                </div>
+                <button class="button button--primary button--md callback-popup__submit" type="submit">
+                    Перезвоните мне
+                </button>
+                <p class="callback-popup__policy ui-text ui-text--size-xxs">
+                    * Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="popup" id="orderDetailsPopup" role="dialog" aria-modal="true" aria-labelledby="orderDetailsTitle">
+    <div class="popup__overlay"></div>
+
+    <div class="popup__content popup__content--order-details">
+        <button class="popup__close" type="button" aria-label="Закрыть окно">×</button>
+
+        <div class="order-details">
+            <div class="order-details__header">
+                <div>
+                    <h3 class="order-details__title" id="orderDetailsTitle">
+                        Заказ №<span id="orderNumber"></span>
+                    </h3>
+                    <p class="order-details__date">
+                        <span id="orderDate"></span>
+                    </p>
+                </div>
+
+                <span id="orderStatusBadge" class="status status--large"></span>
+            </div>
+
+            <div class="order-details__info">
+                <div class="order-details__row">
+                    <span>Способ получения</span>
+                    <span id="deliveryMethod"></span>
+                </div>
+
+                <div class="order-details__row">
+                    <span>Адрес</span>
+                    <span id="deliveryAddress"></span>
+                </div>
+
+                <div class="order-details__row">
+                    <span>Дата доставки</span>
+                    <span id="deliveryDate"></span>
+                </div>
+
+                <div class="order-details__row">
+                    <span>Время доставки</span>
+                    <span id="deliveryTime"></span>
+                </div>
+            </div>
+
+            <div class="order-details__section">
+                <h4>Состав заказа</h4>
+
+                <div id="orderItemsList" class="order-items"></div>
+
+                <div class="order-details__total">
+                    <span>Общая сумма заказа</span>
+                    <strong id="orderTotal"></strong>
+                </div>
+            </div>
+
+            <div class="order-details__section" id="orderCommentWrapper">
+                <h4>Комментарий</h4>
+                <p id="orderComment"></p>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="popup" id="servicePopup" role="dialog" aria-modal="true" aria-labelledby="servicePopupTitle">
     <div class="popup__overlay"></div>
     <div class="popup__content popup__content--service">
@@ -248,6 +367,7 @@
 <script src="../library/swiper/js/swiper-bundle.min.js"></script>
 <script src="../library/datepicker/datepicker-full.min.js"></script>
 <script src="../library/datepicker/ru.js"></script>
+<script src="../library/noUiSlider/js/nouislider.min.js"></script>
 <script src="../js/index.min.js"></script>
 </body>
 </html>

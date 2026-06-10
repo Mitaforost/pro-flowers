@@ -1,0 +1,75 @@
+@@include('./common/header.html')
+
+<section class="auth-section m-100">
+    <div class="container">
+        <div class="auth-section__head">
+            <h2 class="ui-text ui-text--size-xxl ui-text--uppercase ui-text--weight-400">
+                Вход в личный кабинет
+            </h2>
+            <p class="auth-section__subtitle ui-text ui-text--size-s ui-text--weight-400">
+                Введите номер телефона и пароль
+            </p>
+        </div>
+
+        <div class="auth-section__layout">
+            <form class="auth-form" id="loginForm" method="post">
+                <div class="auth-form__grid">
+                    <div class="auth-form__field auth-form__field--full">
+                        <label class="ui-text ui-text--size-xxs">Телефон *</label>
+                        <input type="tel" name="phone" placeholder="+375 (__) ___-__-__" required>
+                    </div>
+
+                    <div class="auth-form__field auth-form__field--full">
+                        <label class="ui-text ui-text--size-xxs">Пароль *</label>
+                        <div class="password-wrapper">
+                            <input type="password" name="password" placeholder="••••••••" required>
+                            <button type="button" class="password-toggle" aria-label="Показать/скрыть пароль">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 12s2-7 11-7 11 7 11 7-2 7-11 7-11-7-11-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="auth-form__row">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="rememberme">
+                            <span>Запомнить меня</span>
+                        </label>
+                        <a href="page-forgot-password.html" class="auth-form__forgot-link">Забыли пароль?</a>
+                    </div>
+
+                    <button type="submit" class="button button--primary button--lg auth-form__submit">Войти</button>
+
+                    <div class="auth-form__register">
+                        <p>Нет аккаунта? <a href="page-registration.html">Зарегистрироваться</a></p>
+                    </div>
+                </div>
+            </form>
+
+            <aside class="auth-sidebar">
+                <div class="auth-sidebar__card">
+                    <h3 class="ui-text ui-text--size-s ui-text--weight-500">Бонусы за регистрацию</h3>
+                    <p class="ui-text ui-text--size-xs ui-text--weight-400">
+                        После регистрации вы получаете 50 бонусов на счёт. Бонусами можно оплатить до 30% заказа.
+                    </p>
+                </div>
+                <div class="auth-sidebar__card">
+                    <h3 class="ui-text ui-text--size-s ui-text--weight-500">Доставка цветов по Минску</h3>
+                    <p class="ui-text ui-text--size-xs ui-text--weight-400">
+                        Свежие букеты за 1–2 часа. Работаем ежедневно с 9:00 до 21:00.
+                    </p>
+                </div>
+                <div class="auth-sidebar__card">
+                    <h3 class="ui-text ui-text--size-s ui-text--weight-500">Фото перед отправкой</h3>
+                    <p class="ui-text ui-text--size-xs ui-text--weight-400">
+                        Согласуем готовый букет перед доставкой – вы всегда будете уверены в результате.
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+@@include('./common/footer.html')

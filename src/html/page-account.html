@@ -1,0 +1,163 @@
+@@include('./common/header.html')
+
+<section class="account">
+    <div class="container">
+        <div class="account__authorized">
+            <div class="account__header">
+                <div class="account__greeting">
+                    <h1 class="account__title">Личный кабинет</h1>
+                    <p class="account__user-name">Здравствуйте, Анна!</p>
+                </div>
+                <div class="account__stats">
+                    <div class="stat-card">
+                        <span class="stat-card__label">Бонусный баланс</span>
+                        <span class="stat-card__value">1 250 руб.</span>
+                        <span class="stat-card__hint">до 30% оплаты бонусами</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-card__label">Персональная скидка</span>
+                        <span class="stat-card__value">5%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="account__tabs">
+                <button class="tab-btn active" data-tab="profile">Профиль</button>
+                <button class="tab-btn" data-tab="orders">Заказы</button>
+                <button class="tab-btn" data-tab="subscriptions">Подписки</button>
+                <button class="tab-btn" data-tab="bonuses">Бонусы</button>
+            </div>
+
+            <!-- Профиль -->
+            <div class="tab-pane active" id="tab-profile">
+                <div class="profile-columns">
+                    <div class="account__form-card">
+                        <h3 class="card-title">Личные данные</h3>
+                        <form id="profileForm" class="account-form">
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>Имя</label>
+                                    <input type="text" name="firstName" value="Анна" required>
+                                </div>
+                                <div class="form-field">
+                                    <label>Фамилия</label>
+                                    <input type="text" name="lastName" value="Иванова" required>
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <label>Email</label>
+                                <input type="email" name="email" value="anna@flowers.by" required>
+                            </div>
+                            <div class="form-field">
+                                <label>Телефон</label>
+                                <input type="tel" name="phone" value="+375 29 123-45-67" required>
+                            </div>
+                            <button type="submit" class="button button--md button--primary">Сохранить</button>
+                        </form>
+                    </div>
+
+                    <div class="account__form-card">
+                        <h3 class="card-title">Смена пароля</h3>
+                        <form id="passwordForm" class="account-form">
+                            <div class="form-field">
+                                <label>Текущий пароль</label>
+                                <input type="password" name="currentPassword" required>
+                            </div>
+                            <div class="form-field">
+                                <label>Новый пароль</label>
+                                <input type="password" name="newPassword" required>
+                            </div>
+                            <div class="form-field">
+                                <label>Подтверждение</label>
+                                <input type="password" name="confirmPassword" required>
+                            </div>
+                            <button type="submit" class="button button--md button--primary">Сменить пароль</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Заказы -->
+            <div class="tab-pane" id="tab-orders">
+                <div class="orders-container">
+                    <div class="orders-table-wrapper">
+                        <table class="orders-table">
+                            <thead>
+                            <tr><th>№ заказа</th><th>Дата</th><th>Сумма</th><th>Статус</th><th></th></tr>
+                            </thead>
+                            <tbody>
+                            <tr><td>#12345</td><td>15.04.2025</td><td>89.90 руб.</td><td><span class="status status--completed">Выполнен</span></td><td><button class="button button--sm button--secondary order-action-btn" data-order-id="12345">Детали</button></td></tr>
+                            <tr><td>#12346</td><td>02.05.2025</td><td>145.00 руб.</td><td><span class="status status--delivered">Передан курьеру</span></td><td><button class="button button--sm button--secondary order-action-btn" data-order-id="12346">Детали</button></td></tr>
+                            <tr><td>#12347</td><td>18.05.2025</td><td>210.50 руб.</td><td><span class="status status--processing">В сборке</span></td><td><button class="button button--sm button--secondary order-action-btn" data-order-id="12347">Детали</button></td></tr>
+                            <tr><td>#12348</td><td>25.05.2025</td><td>67.30 руб.</td><td><span class="status status--pending">Ожидает оплаты</span></td><td><button class="button button--sm button--secondary order-action-btn pay-order">Оплатить</button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="orders-cards">
+                        <div class="order-card"><div class="order-card__header"><span>№12345</span><span class="status status--completed">Выполнен</span></div><div class="order-card__body"><span>Дата: 15.04.2025</span><span>Сумма: 89.90 руб.</span></div><div class="order-card__footer"><button class="button button--sm button--secondary order-action-btn" data-order-id="12345">Подробнее</button></div></div>
+                        <div class="order-card"><div class="order-card__header"><span>№12346</span><span class="status status--delivered">Передан курьеру</span></div><div class="order-card__body"><span>Дата: 02.05.2025</span><span>Сумма: 145.00 руб.</span></div><div class="order-card__footer"><button class="button button--sm button--secondary order-action-btn" data-order-id="12346">Подробнее</button></div></div>
+                        <div class="order-card"><div class="order-card__header"><span>№12347</span><span class="status status--processing">В сборке</span></div><div class="order-card__body"><span>Дата: 18.05.2025</span><span>Сумма: 210.50 руб.</span></div><div class="order-card__footer"><button class="button button--sm button--secondary order-action-btn" data-order-id="12347">Подробнее</button></div></div>
+                        <div class="order-card"><div class="order-card__header"><span>№12348</span><span class="status status--pending">Ожидает оплаты</span></div><div class="order-card__body"><span>Дата: 25.05.2025</span><span>Сумма: 67.30 руб.</span></div><div class="order-card__footer"><button class="button button--sm button--secondary order-action-btn pay-order">Оплатить</button></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane" id="tab-subscriptions">
+                <!-- Активная подписка (видна, если есть) -->
+                <div class="subscription-card">
+                    <div class="subscription-card__header">
+                        <h3 class="subscription-card__title">Цветочный WOW</h3>
+                        <span class="subscription-card__badge">Активна</span>
+                    </div>
+                    <div class="subscription-card__info">
+                        <div class="subscription-card__row">
+                            <span class="subscription-card__label">Срок действия:</span>
+                            <span>до 31 декабря 2025</span>
+                        </div>
+                        <div class="subscription-card__row">
+                            <span class="subscription-card__label">Следующая доставка:</span>
+                            <span>10 июня 2025</span>
+                        </div>
+                        <div class="subscription-card__row">
+                            <span class="subscription-card__label">Состав:</span>
+                            <span>ежемесячный букет из сезонных цветов + открытка</span>
+                        </div>
+                    </div>
+                    <p class="subscription-card__hint">Отмена или изменение подписки возможны только через менеджера магазина.</p>
+                </div>
+                <!-- Блок, когда нет подписок (скрыт, если есть активная) -->
+                <div class="subscription-card subscription-card--empty" style="display: none;">
+                    <p>У вас нет активной подписки.</p>
+                    <a href="/services" class="button button--md button--primary">Оформить подписку</a>
+                </div>
+            </div>
+
+            <!-- Бонусы -->
+            <div class="tab-pane" id="tab-bonuses">
+                <div class="bonus-panel">
+                    <div class="bonus-rules">
+                        <h4>Правила начисления и использования</h4>
+                        <ul>
+                            <li>Начисляется 2% от суммы оплаченного заказа</li>
+                            <li>Бонусами можно оплатить до 30% стоимости заказа</li>
+                            <li>Бонусы сгорают через 6 месяцев после начисления</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="account__guest" style="display: none;">
+            <div class="guest-message">
+                <h2>Войдите в личный кабинет</h2>
+                <p>Чтобы просматривать историю заказов, бонусы и подписки, пожалуйста, авторизуйтесь.</p>
+                <div class="guest-buttons">
+                    <a href="/authorization/" class="button button--md button--primary">Войти</a>
+                    <a href="/registration/" class="button button--md button--secondary">Зарегистрироваться</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@@include('./common/footer.html')

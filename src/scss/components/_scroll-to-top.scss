@@ -1,0 +1,80 @@
+.scroll-to-top {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 400;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+
+  @media (min-width: 768px) {
+    left: 30px;
+    bottom: 30px;
+  }
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: var(--color-accent-primary);
+    color: var(--color-text-inverse);
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    transition:
+            background-color 0.2s ease,
+            transform 0.2s ease;
+
+    outline: none;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--color-accent-hover);
+        transform: translateY(-3px);
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      box-shadow:
+              0 0 0 3px rgba(255, 255, 255, 0.4),
+              0 0 0 6px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  &__icon {
+    width: 14px;
+    height: 8px;
+
+    fill: currentColor;
+
+    transform: rotate(180deg);
+  }
+}

@@ -31,11 +31,10 @@
 @use 'components/product';
 @use 'components/cart';
 @use 'components/thankyou';
-
-
-
-
-
+@use 'components/account';
+@use 'components/auth-forms';
+@use 'components/scroll-to-top';
+@use 'components/callback-btn';
 @use 'components/eror-page';
 @use 'components/notifications';
 @use 'components/cookie';

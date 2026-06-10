@@ -1,0 +1,49 @@
+.callback-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 400;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  @media (min-width: 768px) {
+    right: 30px;
+    bottom: 30px;
+  }
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: var(--color-accent-primary);
+    color: var(--color-text-inverse);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-accent-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    color: currentColor;
+  }
+}

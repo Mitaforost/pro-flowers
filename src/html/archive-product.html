@@ -1,4 +1,62 @@
 @@include('./common/header.html')
+<section class="day-bouquet">
+    <div class="container">
+        <div class="day-bouquet__card">
+            <div class="day-bouquet__visual">
+                <img src="../img/jpg/buket1.jpg" alt="Букет дня Нежное утро" loading="lazy">
+            </div>
+
+            <div class="day-bouquet__info">
+                <div class="day-bouquet__label">Букет дня</div>
+                <h2 class="day-bouquet__title">Нежное утро</h2>
+                <p class="day-bouquet__slogan">“Идеальный выбор, если хочешь порадовать без повода”</p>
+
+                <div class="day-bouquet__composition">
+                    <span class="composition-title">Состав:</span>
+                    <ul class="composition-list">
+                        <li>15 белых роз</li>
+                        <li>4 красные розы</li>
+                        <li>красная бумага</li>
+                        <li>синяя бумага</li>
+                        <li>размер 50×70 см</li>
+                    </ul>
+                </div>
+
+                <div class="day-bouquet__features">
+                    <span>Фото перед отправкой</span>
+                    <span>Доставка за 2 часа</span>
+                </div>
+            </div>
+
+            <div class="day-bouquet__offer">
+                <div class="price-block">
+                    <span class="old-price">210 руб.</span>
+                    <span class="new-price">177 руб.</span>
+                </div>
+
+                <div class="timer-block">
+                    <div class="timer-label">До конца акции:</div>
+                    <div class="timer" id="bouquetTimer">
+                        <div class="timer-digits">
+                            <span id="timerHours">00</span><span>ч</span>
+                            <span>:</span>
+                            <span id="timerMinutes">00</span><span>мин</span>
+                            <span>:</span>
+                            <span id="timerSeconds">00</span><span>с</span>
+                        </div>
+                    </div>
+                    <div class="timer-expired" id="timerExpiredMessage" style="display: none;">
+                        Сегодняшний букет уже недоступен<br>Завтра новый – успейте!
+                    </div>
+                </div>
+
+                <button class="button button--primary quick-order-btn" data-bouquet="Нежное утро">
+                    Быстрый заказ
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="catalog-page m-100">
     <div class="catalog-page__main">
         <div class="container">
@@ -403,76 +461,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<section class="day-bouquet m-100">
-    <div class="container">
-
-        <h2 class="ui-text ui-text--center ui-text--uppercase ui-text--weight-500">
-            Букет дня “Нежное утро”
-        </h2>
-
-        <div class="day-bouquet__card">
-
-            <div class="day-bouquet__image-wrapper">
-                <img src="../img/jpg/buket1.jpg" alt="Букет дня Нежное утро" class="day-bouquet__image" loading="lazy">
-            </div>
-
-            <div class="day-bouquet__info">
-                <p class="day-bouquet__slogan ui-text ui-text--size-s">
-                    “Идеальный выбор, если хочешь порадовать без повода”
-                </p>
-
-                <div class="day-bouquet__parameters">
-                    <h3 class="day-bouquet__param-title ui-text ui-text--size-xs ui-text--weight-500">
-                        Параметры:
-                    </h3>
-                    <ul class="day-bouquet__param-list ui-text ui-text--size-xs">
-                        <li>15 белых роз</li>
-                        <li>4 красные розы</li>
-                        <li>красная бумага</li>
-                        <li>синяя бумага</li>
-                        <li>размер 50х70 см</li>
-                    </ul>
-                </div>
-
-                <div class="day-bouquet__features">
-                    <div class="day-bouquet__feature-item">
-                        <div class="day-bouquet__feature-icon">
-                            <svg viewBox="0 0 130 130">
-                                <use xlink:href="./img/sprites.svg#icon-flower-photo"></use>
-                            </svg>
-                        </div>
-                        <span class="ui-text ui-text--size-xxs">Фото букета перед отправкой</span>
-                    </div>
-
-                    <div class="day-bouquet__feature-item">
-                        <div class="day-bouquet__feature-icon">
-                            <svg viewBox="0 0 130 130">
-                                <use xlink:href="./img/sprites.svg#icon-delivery"></use>
-                            </svg>
-                        </div>
-                        <span class="ui-text ui-text--size-xxs">Доставка за 2 часа</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="day-bouquet__action">
-                <p class="day-bouquet__countdown ui-text ui-text--size-l ui-text--weight-600">
-                    Успейте заказать<br>до 21:00
-                </p>
-
-                <div class="day-bouquet__price-block">
-                    <span class="day-bouquet__old-price ui-text ui-text--size-l">210 руб.</span>
-                    <span class="day-bouquet__new-price ui-text ui-text--size-xxxl ui-text--weight-600">177 руб.</span>
-                </div>
-
-                <button class="button button--md button--primary ui-text--uppercase ui-text--weight-600">
-                    Быстрый заказ
-                </button>
-            </div>
-
         </div>
     </div>
 </section>

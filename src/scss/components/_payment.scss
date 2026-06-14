@@ -175,11 +175,10 @@
 
   &__content {
     display: grid;
-    grid-template-columns: 1fr 520px;
+    grid-template-columns: 1fr 1.5fr;
     gap: 30px;
 
     @media (max-width: 1200px) {
-      grid-template-columns: 1fr 420px;
     }
 
     @media (max-width: 1024px) {

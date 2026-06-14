@@ -1,8 +1,3 @@
-// ============================================
-// Личный кабинет – специфические стили
-// Глобальные кнопки (.button) и переменные уже определены
-// ============================================
-
 .account {
   margin: 40px 0 80px;
 
@@ -81,7 +76,6 @@
     }
   }
 
-  // Табы
   &__tabs {
     display: flex;
     flex-wrap: wrap;
@@ -126,7 +120,6 @@
     }
   }
 
-  // Профиль – колонки
   .profile-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -161,7 +154,6 @@
     border-bottom: 1px solid var(--color-border);
   }
 
-  // Формы
   .account-form {
     display: flex;
     flex-direction: column;
@@ -206,14 +198,56 @@
         }
       }
     }
+
+    // Стили для обёртки пароля и кнопки-глазка
+    .password-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      input {
+        flex: 1;
+        padding-right: 44px;
+      }
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-secondary);
+      transition: color 0.2s ease;
+
+      svg {
+        width: 20px;
+        height: 20px;
+        stroke: currentColor;
+        fill: none;
+      }
+
+      &:hover {
+        color: var(--color-accent-primary);
+      }
+
+      &:focus {
+        outline: none;
+        color: var(--color-accent-primary);
+      }
+
+      &.is-active {
+        color: var(--color-accent-primary);
+      }
+    }
   }
 
-  // Кнопки действий в заказах (единый стиль)
-  .order-action-btn {
-    // используется глобальный класс .button, дополнительные стили не нужны
-  }
-
-  // Таблица заказов (десктоп)
   .orders-table-wrapper {
     overflow-x: auto;
     background: var(--color-bg-card);
@@ -230,7 +264,8 @@
     border-collapse: collapse;
     font-size: 14px;
 
-    th, td {
+    th,
+    td {
       padding: 14px 12px;
       text-align: left;
       border-bottom: 1px solid var(--color-border);
@@ -270,7 +305,6 @@
     }
   }
 
-  // Мобильные карточки заказов
   .orders-cards {
     display: none;
     flex-direction: column;
@@ -310,7 +344,6 @@
     }
   }
 
-  // Подписка – без иконки, без hover-анимаций, без ссылки на менеджера
   .subscription-card {
     background: var(--color-bg-card);
     border-radius: var(--border-radius);
@@ -338,7 +371,7 @@
     }
 
     &__badge {
-      background: linear-gradient(135deg, var(--color-accent-primary) 0%, #8B5A5A 100%);
+      background: linear-gradient(135deg, var(--color-accent-primary) 0%, #8b5a5a 100%);
       color: white;
       padding: 5px 14px;
       border-radius: 40px;
@@ -361,6 +394,7 @@
       gap: 8px;
       font-size: 15px;
       line-height: 1.4;
+
       @media (max-width: 687px) {
         flex-direction: column;
       }
@@ -383,6 +417,7 @@
     &--empty {
       text-align: center;
       padding: 40px;
+
       p {
         margin-bottom: 20px;
         font-size: 16px;
@@ -390,7 +425,6 @@
     }
   }
 
-  // Бонусы
   .bonus-panel {
     background: var(--color-bg-card);
     border-radius: var(--border-radius);
@@ -403,9 +437,11 @@
       font-size: 18px;
       margin-bottom: 12px;
     }
+
     ul {
       list-style: disc;
       padding-left: 20px;
+
       li {
         margin-bottom: 8px;
         font-size: 14px;
@@ -413,7 +449,6 @@
     }
   }
 
-  // Гостевой блок
   &__guest {
     text-align: center;
     padding: 60px 20px;
@@ -424,13 +459,16 @@
     .guest-message {
       max-width: 500px;
       margin: 0 auto;
+
       h2 {
         margin-bottom: 16px;
       }
+
       p {
         margin-bottom: 24px;
         color: var(--color-text-secondary);
       }
+
       .guest-buttons {
         display: flex;
         gap: 16px;
@@ -442,7 +480,7 @@
 }
 
 // ============================================
-// Стили для попапа деталей заказа (только для этого попапа)
+// Стили для попапа деталей заказа
 // ============================================
 .popup__content--order-details {
   max-width: 860px;
@@ -502,6 +540,7 @@
         font-weight: 600;
         color: var(--color-text-primary);
       }
+
       span:last-child {
         color: var(--color-text-primary);
         word-break: break-word;
@@ -551,13 +590,16 @@
           &__name {
             font-weight: 500;
           }
+
           &__qty {
             text-align: center;
           }
+
           &__price,
           &__sum {
             text-align: right;
           }
+
           &__sum {
             font-weight: 700;
             color: var(--color-accent-primary);
@@ -579,12 +621,14 @@
 
   &__comment {
     margin-top: 16px;
+
     h4 {
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 10px;
       color: var(--color-text-primary);
     }
+
     p {
       background: var(--color-bg-primary);
       padding: 14px 18px;
@@ -598,6 +642,7 @@
   &__footer {
     margin-top: 28px;
     text-align: right;
+
     .button {
       min-width: 140px;
     }

@@ -20,18 +20,29 @@
             <!-- Две колонки: форма доставки + итоги -->
             <div class="cart-checkout">
                 <div class="cart-checkout__left">
+                    <!-- КОНТАКТНЫЕ ДАННЫЕ (перенесены сверху) -->
+                    <div class="cart-contacts">
+                        <h3 class="cart-contacts__title">Контактные данные</h3>
+                        <input type="text" placeholder="Ваше имя *" class="cart-input" id="customerName">
+                        <input type="tel" placeholder="Ваш телефон *" class="cart-input" id="customerPhone">
+                    </div>
+
                     <!-- Способ получения -->
                     <div class="cart-delivery">
                         <h3 class="cart-delivery__title">Способ получения</h3>
                         <label class="cart-radio">
-                            <input type="radio" name="delivery" value="pickup" checked> <span>Самовывоз</span>
+                            <input type="radio" name="delivery" value="pickup" checked>
+                            <span class="cart-radio__control"></span>
+                            <span>Самовывоз (бесплатно)</span>
                         </label>
                         <label class="cart-radio">
-                            <input type="radio" name="delivery" value="courier"> <span>Курьерская доставка</span>
+                            <input type="radio" name="delivery" value="courier">
+                            <span class="cart-radio__control"></span>
+                            <span>Курьерская доставка (платно, стоимость уточнит менеджер)</span>
                         </label>
                         <div class="cart-delivery__pickup">
                             <p>г. Минск, улица Веры Хоружей, 17</p>
-                            <button class="button button--primary button--sm show-map" type="button">Карта</button>
+                            <!-- Кнопка карты удалена -->
                         </div>
                         <div class="cart-delivery__courier hidden">
                             <input type="text" placeholder="Имя получателя *" class="cart-input" id="recipientName">
@@ -42,6 +53,7 @@
                             <textarea class="cart-input" placeholder="Комментарий к заказу" id="comment" rows="2"></textarea>
                         </div>
                     </div>
+
                     <!-- Дата и время -->
                     <div class="cart-date">
                         <div class="cart-date__field">
@@ -68,19 +80,22 @@
                         </div>
                     </div>
                 </div>
+
                 <aside class="cart-summary">
                     <h3 class="cart-summary__title">Детализация заказа</h3>
                     <div class="cart-summary__rows" id="summaryRows"></div>
+
+                    <div class="cart-summary__delivery">
+                        <span>Доставка</span>
+                        <span id="deliveryInfoText">Бесплатно</span>
+                    </div>
                     <div class="cart-summary__total">
                         <span>Всего к оплате</span>
                         <strong class="cart-summary__price" id="totalPrice">0 руб.</strong>
                     </div>
-                    <div class="cart-summary__form">
-                        <input type="text" placeholder="Ваше имя *" class="cart-input" id="customerName">
-                        <input type="tel" placeholder="Ваш телефон *" class="cart-input" id="customerPhone">
-                        <input type="email" placeholder="Ваш email" class="cart-input" id="customerEmail">
-                        <button class="button button--primary button--lg" id="checkoutBtn">Оформить заказ</button>
-                    </div>
+                    <!-- Примечание (видно только при курьере) -->
+                    <div class="cart-summary__footnote hidden">*Стоимость доставки будет рассчитана менеджером после подтверждения заказа</div>
+                    <button class="button button--primary button--lg" id="checkoutBtn">Оформить заказ</button>
                     <div class="cart-auth">
                         <p>Авторизуйтесь, чтобы видеть историю заказов, оплатить заказ после подтверждения и вводить меньше полей.</p>
                         <a href="./login.html" class="button button--secondary button--sm">Войти</a>

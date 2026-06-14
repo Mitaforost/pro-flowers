@@ -1,22 +1,14 @@
-/**
- * Корзина – рендер товаров, редирект на страницу спасибо
- */
 export function initCart() {
-    // Проверка: мы на странице корзины? Если нет – выходим молча
     const cartWrapper = document.getElementById('cartWrapper');
     const emptyCartBlock = document.getElementById('emptyCartBlock');
     if (!cartWrapper || !emptyCartBlock) return;
-
-    // Получаем остальные элементы (они точно есть на странице корзины)
     const cartProducts = document.getElementById('cartProducts');
     const cartExtraBlock = document.getElementById('cartExtraBlock');
     const cartExtraList = document.getElementById('cartExtraList');
     const summaryRows = document.getElementById('summaryRows');
     const totalPriceSpan = document.getElementById('totalPrice');
     const checkoutBtn = document.getElementById('checkoutBtn');
-    const mainSection = document.getElementById('cartMainBlock'); // добавлено
-
-    // Демо-данные (заменить на реальные из WordPress)
+    const mainSection = document.getElementById('cartMainBlock');
     let cartData = {
         main: [
             {
@@ -29,8 +21,8 @@ export function initCart() {
                 props: {
                     size: 'Высота 70 см',
                     color: 'Розовый',
-                    composition: 'Роза красная (25 шт), Лента (1 шт)',
-                    event: 'Любимой девушке, Примирение, День Рождения, Бабушке, Помолвка, Выписка из роддома, Подруге, Годовщина свадьбы, Сестре'
+                    composition: 'Роза красная (25 шт), Лента (1 шт)'
+                    // event удалён
                 }
             },
             {
@@ -43,8 +35,7 @@ export function initCart() {
                 props: {
                     size: 'Высота 60 см',
                     color: 'Белый / Розовый',
-                    composition: 'Роза розовая (25 шт), Лента (1 шт)',
-                    event: 'Любимой девушке, Годовщина'
+                    composition: 'Роза розовая (25 шт), Лента (1 шт)'
                 }
             }
         ],
@@ -60,7 +51,7 @@ export function initCart() {
             }
         ]
     };
-
+    let currentDeliveryType = 'pickup';
     function escapeHtml(str) {
         if (!str) return '';
         return str.replace(/[&<>]/g, (m) => {
@@ -70,7 +61,6 @@ export function initCart() {
             return m;
         });
     }
-
     function showNotification(text, isError = false) {
         const existing = document.querySelector('.notification-toast');
         if (existing) existing.remove();
@@ -81,17 +71,14 @@ export function initCart() {
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 3000);
     }
-
     function renderSpecs(props) {
         if (!props) return '';
         const items = [];
         if (props.size) items.push(`<div class="spec-item"><span class="spec-label">Размер:</span> ${escapeHtml(props.size)}</div>`);
         if (props.color) items.push(`<div class="spec-item"><span class="spec-label">Цвет:</span> ${escapeHtml(props.color)}</div>`);
         if (props.composition) items.push(`<div class="spec-item"><span class="spec-label">Состав:</span> ${escapeHtml(props.composition)}</div>`);
-        if (props.event) items.push(`<div class="spec-item"><span class="spec-label">Событие:</span> ${escapeHtml(props.event)}</div>`);
         return `<div class="cart-item__specs">${items.join('')}</div>`;
     }
-
     function renderCartItem(item, type) {
         const isExtra = type === 'extra';
         const specsHtml = (!isExtra && item.props) ? renderSpecs(item.props) : '';
@@ -119,104 +106,6 @@ export function initCart() {
             </div>
         `;
     }
-
-    function renderCart() {
-        const hasMain = cartData.main.length > 0;
-        const hasExtra = cartData.extra.length > 0;
-
-        if (!hasMain && !hasExtra) {
-            cartWrapper.style.display = 'none';
-            emptyCartBlock.classList.remove('hidden');
-            return;
-        }
-        cartWrapper.style.display = 'flex';
-        emptyCartBlock.classList.add('hidden');
-
-        // Управление видимостью основного раздела
-        if (mainSection) {
-            if (hasMain) {
-                mainSection.classList.remove('hidden');
-            } else {
-                mainSection.classList.add('hidden');
-            }
-        }
-
-        // Рендер основных товаров
-        if (cartProducts) {
-            cartProducts.innerHTML = cartData.main.map(item => renderCartItem(item, 'main')).join('');
-        }
-
-        // Рендер дополнительных товаров и управление видимостью
-        if (hasExtra && cartExtraList) {
-            cartExtraList.innerHTML = cartData.extra.map(item => renderCartItem(item, 'extra')).join('');
-            cartExtraBlock.classList.remove('hidden');
-        } else if (cartExtraBlock) {
-            cartExtraBlock.classList.add('hidden');
-        }
-
-        updateTotals();
-        attachEvents();
-    }
-
-    function attachEvents() {
-        document.querySelectorAll('.cart-item__minus, .cart-item__plus').forEach(btn => {
-            btn.removeEventListener('click', handleQuantity);
-            btn.addEventListener('click', handleQuantity);
-        });
-        document.querySelectorAll('[data-quantity-input]').forEach(input => {
-            input.removeEventListener('change', handleQuantityInput);
-            input.addEventListener('change', handleQuantityInput);
-        });
-        document.querySelectorAll('.cart-item__remove').forEach(btn => {
-            btn.removeEventListener('click', handleRemove);
-            btn.addEventListener('click', handleRemove);
-        });
-    }
-
-    function handleQuantity(e) {
-        const btn = e.currentTarget;
-        const itemDiv = btn.closest('.cart-item');
-        if (!itemDiv) return;
-        const id = itemDiv.dataset.id;
-        const type = itemDiv.dataset.type;
-        const delta = btn.classList.contains('cart-item__plus') ? 1 : -1;
-        let item = (type === 'main') ? cartData.main.find(i => i.id === id) : cartData.extra.find(i => i.id === id);
-        if (!item) return;
-        item.quantity = Math.max(1, item.quantity + delta);
-        const input = itemDiv.querySelector('[data-quantity-input]');
-        if (input) input.value = item.quantity;
-        updateTotals();
-    }
-
-    function handleQuantityInput(e) {
-        const input = e.currentTarget;
-        const itemDiv = input.closest('.cart-item');
-        if (!itemDiv) return;
-        const id = itemDiv.dataset.id;
-        const type = itemDiv.dataset.type;
-        let newVal = parseInt(input.value);
-        if (isNaN(newVal) || newVal < 1) newVal = 1;
-        let item = (type === 'main') ? cartData.main.find(i => i.id === id) : cartData.extra.find(i => i.id === id);
-        if (item) {
-            item.quantity = newVal;
-            updateTotals();
-        }
-    }
-
-    function handleRemove(e) {
-        const btn = e.currentTarget;
-        const itemDiv = btn.closest('.cart-item');
-        if (!itemDiv) return;
-        const id = itemDiv.dataset.id;
-        const type = itemDiv.dataset.type;
-        itemDiv.classList.add('removing');
-        setTimeout(() => {
-            if (type === 'main') cartData.main = cartData.main.filter(i => i.id !== id);
-            else cartData.extra = cartData.extra.filter(i => i.id !== id);
-            renderCart();
-        }, 250);
-    }
-
     function updateTotals() {
         let total = 0;
         const rows = [];
@@ -236,19 +125,112 @@ export function initCart() {
         }
         if (totalPriceSpan) totalPriceSpan.innerText = `${total} руб.`;
     }
+    function updateDeliveryDisplay() {
+        const deliveryInfoSpan = document.getElementById('deliveryInfoText');
+        const footnote = document.querySelector('.cart-summary__footnote');
+        if (currentDeliveryType === 'courier') {
+            if (deliveryInfoSpan) deliveryInfoSpan.innerText = 'Платно';
+            if (footnote) footnote.classList.remove('hidden');
+        } else {
+            if (deliveryInfoSpan) deliveryInfoSpan.innerText = 'Бесплатно';
+            if (footnote) footnote.classList.add('hidden');
+        }
+    }
+    function renderCart() {
+        const hasMain = cartData.main.length > 0;
+        const hasExtra = cartData.extra.length > 0;
 
+        if (!hasMain && !hasExtra) {
+            cartWrapper.style.display = 'none';
+            emptyCartBlock.classList.remove('hidden');
+            return;
+        }
+        cartWrapper.style.display = 'flex';
+        emptyCartBlock.classList.add('hidden');
+
+        if (mainSection) {
+            if (hasMain) mainSection.classList.remove('hidden');
+            else mainSection.classList.add('hidden');
+        }
+
+        if (cartProducts) {
+            cartProducts.innerHTML = cartData.main.map(item => renderCartItem(item, 'main')).join('');
+        }
+
+        if (hasExtra && cartExtraList) {
+            cartExtraList.innerHTML = cartData.extra.map(item => renderCartItem(item, 'extra')).join('');
+            cartExtraBlock.classList.remove('hidden');
+        } else if (cartExtraBlock) {
+            cartExtraBlock.classList.add('hidden');
+        }
+        updateTotals();
+        updateDeliveryDisplay();
+        attachEvents();
+    }
+    function attachEvents() {
+        document.querySelectorAll('.cart-item__minus, .cart-item__plus').forEach(btn => {
+            btn.removeEventListener('click', handleQuantity);
+            btn.addEventListener('click', handleQuantity);
+        });
+        document.querySelectorAll('[data-quantity-input]').forEach(input => {
+            input.removeEventListener('change', handleQuantityInput);
+            input.addEventListener('change', handleQuantityInput);
+        });
+        document.querySelectorAll('.cart-item__remove').forEach(btn => {
+            btn.removeEventListener('click', handleRemove);
+            btn.addEventListener('click', handleRemove);
+        });
+    }
+    function handleQuantity(e) {
+        const btn = e.currentTarget;
+        const itemDiv = btn.closest('.cart-item');
+        if (!itemDiv) return;
+        const id = itemDiv.dataset.id;
+        const type = itemDiv.dataset.type;
+        const delta = btn.classList.contains('cart-item__plus') ? 1 : -1;
+        let item = (type === 'main') ? cartData.main.find(i => i.id === id) : cartData.extra.find(i => i.id === id);
+        if (!item) return;
+        item.quantity = Math.max(1, item.quantity + delta);
+        const input = itemDiv.querySelector('[data-quantity-input]');
+        if (input) input.value = item.quantity;
+        updateTotals();
+    }
+    function handleQuantityInput(e) {
+        const input = e.currentTarget;
+        const itemDiv = input.closest('.cart-item');
+        if (!itemDiv) return;
+        const id = itemDiv.dataset.id;
+        const type = itemDiv.dataset.type;
+        let newVal = parseInt(input.value);
+        if (isNaN(newVal) || newVal < 1) newVal = 1;
+        let item = (type === 'main') ? cartData.main.find(i => i.id === id) : cartData.extra.find(i => i.id === id);
+        if (item) {
+            item.quantity = newVal;
+            updateTotals();
+        }
+    }
+    function handleRemove(e) {
+        const btn = e.currentTarget;
+        const itemDiv = btn.closest('.cart-item');
+        if (!itemDiv) return;
+        const id = itemDiv.dataset.id;
+        const type = itemDiv.dataset.type;
+        itemDiv.classList.add('removing');
+        setTimeout(() => {
+            if (type === 'main') cartData.main = cartData.main.filter(i => i.id !== id);
+            else cartData.extra = cartData.extra.filter(i => i.id !== id);
+            renderCart();
+        }, 250);
+    }
     function submitOrder() {
         const customerName = document.getElementById('customerName')?.value.trim();
         const customerPhone = document.getElementById('customerPhone')?.value.trim();
-        const customerEmail = document.getElementById('customerEmail')?.value.trim();
-        if (!customerName || !customerPhone || !customerEmail) {
-            showNotification('Пожалуйста, заполните имя, телефон и email', true);
+        if (!customerName || !customerPhone) {
+            showNotification('Пожалуйста, заполните имя и телефон заказчика', true);
             return false;
         }
-
         const deliveryTypeRadio = document.querySelector('input[name="delivery"]:checked');
         const deliveryType = deliveryTypeRadio ? deliveryTypeRadio.value : 'pickup';
-
         let recipientName = '';
         let recipientPhone = '';
         let recipientAddress = '';
@@ -268,21 +250,18 @@ export function initCart() {
             recipientPhone = customerPhone;
             recipientAddress = 'Самовывоз (ул. Веры Хоружей, 17)';
         }
-
         const date = document.getElementById('deliveryDate')?.value;
         const time = document.getElementById('deliveryTime')?.value;
         if (!date || !time) {
             showNotification('Выберите дату и время доставки', true);
             return false;
         }
-
         const total = [...cartData.main, ...cartData.extra].reduce((sum, item) => sum + item.price * item.quantity, 0);
         const orderData = {
             orderNumber: Math.floor(Math.random() * 1000000),
             customerName,
             customerPhone,
-            customerEmail,
-            deliveryType: deliveryType === 'courier' ? 'Курьерская доставка' : 'Самовывоз',
+            deliveryType: deliveryType === 'courier' ? 'Курьерская доставка (платно)' : 'Самовывоз (бесплатно)',
             deliveryDate: date,
             deliveryTime: time,
             recipientName,
@@ -326,7 +305,6 @@ export function initCart() {
             });
         });
     }
-
     function initDatepicker() {
         const input = document.getElementById('deliveryDate');
         if (input && typeof Datepicker !== 'undefined') {
@@ -338,24 +316,27 @@ export function initCart() {
             });
         }
     }
-
     const radios = document.querySelectorAll('input[name="delivery"]');
     const courierBlock = document.querySelector('.cart-delivery__courier');
+    const pickupBlock = document.querySelector('.cart-delivery__pickup');
     function toggleDelivery() {
         const selected = document.querySelector('input[name="delivery"]:checked');
-        if (selected?.value === 'courier' && courierBlock) courierBlock.classList.remove('hidden');
-        else if (courierBlock) courierBlock.classList.add('hidden');
-    }
-    if (radios.length && courierBlock) {
-        radios.forEach(r => r.addEventListener('change', toggleDelivery));
-        toggleDelivery();
-    }
+        if (!selected) return;
 
-    const mapBtn = document.querySelector('.show-map');
-    if (mapBtn) {
-        mapBtn.addEventListener('click', () => {
-            window.open('https://yandex.by/maps/?text=Минск+улица+Веры+Хоружей+17', '_blank');
-        });
+        if (selected.value === 'courier') {
+            currentDeliveryType = 'courier';
+            if (courierBlock) courierBlock.classList.remove('hidden');
+            if (pickupBlock) pickupBlock.style.display = 'none';   // скрываем адрес самовывоза
+        } else {
+            currentDeliveryType = 'pickup';
+            if (courierBlock) courierBlock.classList.add('hidden');
+            if (pickupBlock) pickupBlock.style.display = 'flex';   // показываем адрес самовывоза
+        }
+        updateDeliveryDisplay();
+    }
+    if (radios.length && courierBlock && pickupBlock) {
+        radios.forEach(r => r.addEventListener('change', toggleDelivery));
+        toggleDelivery(); // установка начального состояния
     }
 
     if (checkoutBtn) {

@@ -1,5 +1,4 @@
 @@include('./common/header.html')
-
 <section class="account">
     <div class="container">
         <div class="account__authorized">
@@ -20,15 +19,12 @@
                     </div>
                 </div>
             </div>
-
             <div class="account__tabs">
                 <button class="tab-btn active" data-tab="profile">Профиль</button>
                 <button class="tab-btn" data-tab="orders">Заказы</button>
                 <button class="tab-btn" data-tab="subscriptions">Подписки</button>
                 <button class="tab-btn" data-tab="bonuses">Бонусы</button>
             </div>
-
-            <!-- Профиль -->
             <div class="tab-pane active" id="tab-profile">
                 <div class="profile-columns">
                     <div class="account__form-card">
@@ -55,29 +51,50 @@
                             <button type="submit" class="button button--md button--primary">Сохранить</button>
                         </form>
                     </div>
-
                     <div class="account__form-card">
                         <h3 class="card-title">Смена пароля</h3>
                         <form id="passwordForm" class="account-form">
                             <div class="form-field">
                                 <label>Текущий пароль</label>
-                                <input type="password" name="currentPassword" required>
+                                <div class="password-wrapper">
+                                    <input type="password" name="currentPassword" required>
+                                    <button type="button" class="password-toggle" aria-label="Показать/скрыть пароль">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M1 12s2-7 11-7 11 7 11 7-2 7-11 7-11-7-11-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                             <div class="form-field">
                                 <label>Новый пароль</label>
-                                <input type="password" name="newPassword" required>
+                                <div class="password-wrapper">
+                                    <input type="password" name="newPassword" required>
+                                    <button type="button" class="password-toggle" aria-label="Показать/скрыть пароль">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M1 12s2-7 11-7 11 7 11 7-2 7-11 7-11-7-11-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                             <div class="form-field">
                                 <label>Подтверждение</label>
-                                <input type="password" name="confirmPassword" required>
+                                <div class="password-wrapper">
+                                    <input type="password" name="confirmPassword" required>
+                                    <button type="button" class="password-toggle" aria-label="Показать/скрыть пароль">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M1 12s2-7 11-7 11 7 11 7-2 7-11 7-11-7-11-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                             <button type="submit" class="button button--md button--primary">Сменить пароль</button>
                         </form>
                     </div>
                 </div>
             </div>
-
-            <!-- Заказы -->
             <div class="tab-pane" id="tab-orders">
                 <div class="orders-container">
                     <div class="orders-table-wrapper">
@@ -101,9 +118,7 @@
                     </div>
                 </div>
             </div>
-
             <div class="tab-pane" id="tab-subscriptions">
-                <!-- Активная подписка (видна, если есть) -->
                 <div class="subscription-card">
                     <div class="subscription-card__header">
                         <h3 class="subscription-card__title">Цветочный WOW</h3>
@@ -125,14 +140,11 @@
                     </div>
                     <p class="subscription-card__hint">Отмена или изменение подписки возможны только через менеджера магазина.</p>
                 </div>
-                <!-- Блок, когда нет подписок (скрыт, если есть активная) -->
                 <div class="subscription-card subscription-card--empty" style="display: none;">
                     <p>У вас нет активной подписки.</p>
                     <a href="/services" class="button button--md button--primary">Оформить подписку</a>
                 </div>
             </div>
-
-            <!-- Бонусы -->
             <div class="tab-pane" id="tab-bonuses">
                 <div class="bonus-panel">
                     <div class="bonus-rules">
@@ -146,7 +158,6 @@
                 </div>
             </div>
         </div>
-
         <div class="account__guest" style="display: none;">
             <div class="guest-message">
                 <h2>Войдите в личный кабинет</h2>
@@ -159,5 +170,4 @@
         </div>
     </div>
 </section>
-
 @@include('./common/footer.html')

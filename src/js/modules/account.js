@@ -87,6 +87,34 @@ function escapeHtml(str) {
     });
 }
 
+/**
+ * Переключение видимости пароля с сохранением фокуса на кнопке
+ */
+function initPasswordToggles() {
+    const toggles = document.querySelectorAll('.password-toggle');
+    toggles.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const wrapper = btn.closest('.password-wrapper');
+            const input = wrapper?.querySelector('input');
+            if (!input) return;
+
+            const isText = input.type === 'text';
+            if (isText) {
+                input.type = 'password';
+            } else {
+                // Сохраняем значение, меняем тип, восстанавливаем значение
+                const val = input.value;
+                input.type = 'text';
+                input.value = val; // форсируем обновление
+            }
+            btn.classList.toggle('is-active', !isText);
+            btn.setAttribute('aria-label', isText ? 'Показать пароль' : 'Скрыть пароль');
+            // Не уводим фокус с кнопки, оставляем как есть
+        });
+    });
+}
+
 export function initAccount() {
     const tabBtns = document.querySelectorAll('.tab-btn');
     const panes = document.querySelectorAll('.tab-pane');
@@ -153,4 +181,7 @@ export function initAccount() {
             });
         }
     }
+
+    // Активация кнопок "глазки" для всех полей паролей
+    initPasswordToggles();
 }

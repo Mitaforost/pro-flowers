@@ -2,7 +2,7 @@
   &__title {
     font-weight: 500;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-transform: uppercase;
   }
 
@@ -20,10 +20,6 @@
   &__content {
     flex: 1;
     min-width: 0;
-  }
-
-  &__pagination {
-    margin-top: 60px;
   }
 
   &__toolbar {
@@ -120,7 +116,9 @@
     margin-left: auto;
     order: 2;
   }
-
+  &__products{
+    margin-bottom: 20px;
+  }
   .custom-select {
     position: relative;
     min-width: 225px;
@@ -465,9 +463,6 @@
       font-size: 28px;
     }
 
-    &__main {
-      padding: 30px 0 50px;
-    }
   }
 
   @media (max-width: 576px) {
@@ -491,7 +486,6 @@
 }
 
 .pagination {
-  margin-top: 40px;
 
   &__list {
     display: flex;

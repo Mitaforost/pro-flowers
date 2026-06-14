@@ -4,7 +4,11 @@
     margin-bottom: 30px;
     @media (max-width: 767px) { margin-bottom: 20px; }
   }
-  &__title { margin-bottom: 18px; }
+  &__title {
+    margin-bottom: 18px;
+    hyphens: auto;
+    word-break: normal;
+  }
   &__subtitle {
     max-width: 760px;
     margin: 0 auto;
